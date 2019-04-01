@@ -26,7 +26,6 @@ export default class AppRouter extends React.Component {
             <div className="Content">
               <Switch>
                 <Route path="/" component={HomePage} exact={true} />
-
                 <Route component={NotFound} />
               </Switch>
             </div>
