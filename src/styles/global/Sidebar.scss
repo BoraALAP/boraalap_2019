@@ -1,0 +1,49 @@
+@import '../Index.scss';
+
+.Sidebar{
+  display: grid;
+  position: fixed;
+  top: 80px;
+  justify-items: center;
+  width: 50px;
+
+  .projectNum{
+    position: relative;
+    padding: 20px 0;
+    background: $white;
+    bottom: 60vh;
+    justify-items: center;
+    display: grid;
+    font-family: $fontheader;
+    color: $gray_light;
+    font-size:1.5em;
+  }
+
+  .line{
+    width: 1px;
+    height: calc(95vh - 70px);
+    background-color: $gray;
+  }
+
+  .social{
+    position: fixed;
+    bottom: 2.5vh;
+    left: calc(2.5vw + 50px);
+    display: grid;
+    ul{
+      display: grid;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      grid-auto-flow: column;
+      li{
+        padding:5px;
+      }
+    }
+  }
+
+  img{
+    height: 20px;
+    width: 20px;
+  }
+}

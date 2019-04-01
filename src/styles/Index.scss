@@ -1,0 +1,12 @@
+@import './project/variables';
+@import './project/fonts';
+@import './project/base';
+
+body{
+  font-family: $fontbody;
+  margin: 0px;
+}
+
+.Website{
+  display: grid;
+}
