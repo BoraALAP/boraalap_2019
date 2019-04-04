@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { useState } from "react";
+import { Route, Switch } from "react-router-dom";
 
 import Header from "../components/global/Header";
 import Sidebar from "../components/global/Sidebar";
@@ -7,36 +7,40 @@ import NotFound from "../pages/NotFound";
 import HomePage from "../pages/HomePage";
 import Cottonist from "../pages/projects/Cottonist";
 
-export default function AppRouter() {
+export default function AppRouter(props) {
   const [state, setState] = useState({
-    sideBar: true
-  })
+    sideBar: false,
+    currentPage: ""
+  });
 
-  const goIntoProject = () => {
-    console.log('yay')
-  };
+  console.log(props);
+  
 
   return (
-    <div>
-      <Router>
-        <div>
-        <Header />
-        <Sidebar sideBar={state.sideBar} />
-        <div className="Content">
-          <Switch>
-            <Route path="/" component={HomePage} exact={true} />
-            <Route
-              path="/projects/Cottonist"
-              render={(routeProps) => (<Cottonist {...routeProps} changeSideBar={goIntoProject}/>)}
-              exact={true}
+    <div className="Website">
+      <Header />
+      <Sidebar />
+      <div className="Content">
+        <Switch>
+          <Route
+            path="/"
+            render={routeProps => (
+              <HomePage {...routeProps} 
             />
-            <Route component={NotFound} />
-          </Switch>
-        </div>
-        </div>
-      </Router>
-      
+            )}
+            exact={true}
+          />
+          <Route
+            path="/projects/Cottonist"
+            render={routeProps => (
+              <Cottonist
+                {...routeProps}
+              />
+            )}
+          />
+          <Route component={NotFound} />
+        </Switch>
+      </div>
     </div>
   );
 }
-
