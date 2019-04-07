@@ -1,46 +1,47 @@
-import React, { useState } from "react";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
+import { Router, IndexRoute } from "react-router";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import Header from "../components/global/Header";
 import Sidebar from "../components/global/Sidebar";
 import NotFound from "../pages/NotFound";
 import HomePage from "../pages/HomePage";
 import Cottonist from "../pages/projects/Cottonist";
+import Ekar from "../pages/projects/Ekar";
+import BonAPP from "../pages/projects/BonAPP";
 
 export default function AppRouter(props) {
-  const [state, setState] = useState({
-    sideBar: false,
-    currentPage: ""
-  });
-
-  console.log(props);
-  
-
   return (
     <div className="Website">
-      <Header />
-      <Sidebar />
-      <div className="Content">
-        <Switch>
-          <Route
-            path="/"
-            render={routeProps => (
-              <HomePage {...routeProps} 
+      <Route
+        render={({ location }) => (
+          <div>
+          <Header />
+          <Sidebar location={location} />
+          <Switch location={location}>
+            <Route
+              path="/"
+              render={routeProps => <HomePage {...routeProps} />}
+              exact={true}
             />
-            )}
-            exact={true}
-          />
-          <Route
-            path="/projects/Cottonist"
-            render={routeProps => (
-              <Cottonist
-                {...routeProps}
-              />
-            )}
-          />
-          <Route component={NotFound} />
-        </Switch>
-      </div>
+            <Route
+              path="/projects/Cottonist"
+              render={routeProps => <Cottonist {...routeProps} />}
+            />
+            <Route
+              path="/projects/Ekar"
+              render={routeProps => <Ekar {...routeProps} />}
+            />
+            <Route
+              path="/projects/BonAPP"
+              render={routeProps => <BonAPP {...routeProps} />}
+            />
+            <Route component={NotFound} />
+          </Switch>
+          </div>
+        )}
+      />
     </div>
   );
 }

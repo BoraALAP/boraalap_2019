@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+
+import { Link } from "react-router-dom";
 
 import "../../styles/global/Sidebar.scss";
 
@@ -12,30 +14,47 @@ import leftArrow from "../../assets/svg/arrow/left/black.svg";
 import upArrow from "../../assets/svg/arrow/up/black.svg";
 import downArrow from "../../assets/svg/arrow/down/black.svg";
 
-
 export default function Sidebar(props) {
+  const [state, setState] = useState({
+    sideBar: false
+  });
+
+  const changeSideBar = () => {
+    setState({ sideBar: !state.sideBar });
+  };
+
   
+  console.log(props);
+  
+  const location = props.location;
+
   return (
     <div className="Sidebar">
-      <div className="line" />
-
-      {props.sideBar === true ? (
-        <div className="projectNum">
-          <button>
-            <img src={upArrow} alt="up arrow" />
-          </button>
-          <span id="currentProject">1</span>/<span id="totalProjects">6</span>
-          <button>
-            <img src={downArrow} alt="down arrow" />
-          </button>
-        </div>
-      ) : (
-        <div className="projectNum">
-          <button>
-            <img src={leftArrow} alt="left arrow" />
-          </button>
-        </div>
-      )}
+      <div className="Contollers">
+{/*
+        <div className="line" />
+        {location.includes("projects") ? (
+          <div className="projectNum">
+            <Link to="/">
+              <button onClick={changeSideBar}>
+                <img src={leftArrow} alt="left arrow" />
+              </button>
+            </Link>
+          </div>
+        ) : (
+          <div className="projectNum">
+            <button onClick={props.prevSlide}>
+              <img src={upArrow} alt="up arrow" />
+            </button>
+            <span id="currentProject">{props.data.activeNum + 1}</span>/<span id="totalProjects">{props.projects.length}</span>
+            <button onClick={props.nextSlide}>
+              <img src={downArrow} alt="down arrow" />
+            </button>
+          </div>
+        )}
+        <div className="line" />
+        */}
+      </div>
 
       <div className="social">
         <ul>

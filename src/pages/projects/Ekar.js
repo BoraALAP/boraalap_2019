@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Ekar extends Component {
+import Sidebar from "../../components/global/Sidebar";
 
-  render() {
+export default function Ekar(props) {
     return (
       <div>
+      <Sidebar location={props.match.path}/>
         <h2>Ekar</h2>
       </div>
     )
   }
-}
+

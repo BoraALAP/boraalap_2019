@@ -1,6 +1,8 @@
 import React from 'react'
 import Landing from "../Landing";
 
+import Sidebar from "../../components/global/Sidebar";
+
 export default function Cottonist(props) {
   const projects = {
     imageSrc: "https://source.unsplash.com/random/1200x600",
@@ -13,14 +15,17 @@ export default function Cottonist(props) {
 
   return (
     <div>
-      <Landing
-        key={projects.name}
-        imageSrc={projects.imageSrc}
-        name={projects.name}
-        platform={projects.platform}
-        description={projects.description}
-        link={projects.link}
-      />
+      <Sidebar location={props.match.path}/>
+      <div className="Content">
+        <Landing
+          key={projects.name}
+          imageSrc={projects.imageSrc}
+          name={projects.name}
+          platform={projects.platform}
+          description={projects.description}
+          link={projects.link}
+        />
+      </div>
     </div>
   );
 }

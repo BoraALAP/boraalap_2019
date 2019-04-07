@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 export default function Landing(props) {
   return (
-    <div className="Landing">
+    <div className={props.className}>
       <img src={props.imageSrc} alt="Cottonist" />
       <h6>{props.platform}</h6>
       <h2>{props.name}</h2>

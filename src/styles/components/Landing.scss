@@ -1,9 +1,14 @@
 @import '../Index.scss';
 
 .Landing{
-  align-content: center;
   display: grid;
+  position: absolute;
+  transform: translateY(110vh);
   img{
     width: 100%;
+  }
+
+  &.Active{
+    transform: translateY(0vh);
   }
 }

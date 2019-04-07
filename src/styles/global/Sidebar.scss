@@ -6,23 +6,26 @@
   top: 80px;
   justify-items: center;
   width: 50px;
+  left:20px;
 
-  .projectNum{
-    position: relative;
-    padding: 20px 0;
-    background: $white;
-    bottom: 60vh;
-    justify-items: center;
+  .Contollers{
     display: grid;
-    font-family: $fontheader;
-    color: $gray_light;
-    font-size:1.5em;
-  }
+    grid-template-rows: 1fr auto 1fr;
+    height: calc(100vh - 80px - 2.5vh);
+    justify-items: center;
+    .projectNum{
+      padding: 20px 0;
+      justify-items: center;
+      display: grid;
+      font-family: $fontheader;
+      color: $gray_light;
+      font-size:1.5em;
+    }
 
-  .line{
-    width: 1px;
-    height: calc(95vh - 70px);
-    background-color: $gray;
+    .line{
+      width: 1px;
+      background-color: $gray;
+    }
   }
 
   .social{
