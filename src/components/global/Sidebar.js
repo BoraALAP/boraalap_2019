@@ -23,37 +23,35 @@ export default function Sidebar(props) {
     setState({ sideBar: !state.sideBar });
   };
 
-  
-  console.log(props);
+  console.log(props.match.path);
   
   const location = props.location;
+
+  const sidebarBack = (<div className="projectNum">
+  <Link to="/">
+    <button onClick={changeSideBar}>
+      <img src={leftArrow} alt="left arrow" />
+    </button>
+  </Link>
+</div>)
+
+const sidebarHome = (
+  <div className="projectNum">
+    
+  </div>
+)
+
+
+
+ 
 
   return (
     <div className="Sidebar">
       <div className="Contollers">
-{/*
         <div className="line" />
-        {location.includes("projects") ? (
-          <div className="projectNum">
-            <Link to="/">
-              <button onClick={changeSideBar}>
-                <img src={leftArrow} alt="left arrow" />
-              </button>
-            </Link>
-          </div>
-        ) : (
-          <div className="projectNum">
-            <button onClick={props.prevSlide}>
-              <img src={upArrow} alt="up arrow" />
-            </button>
-            <span id="currentProject">{props.data.activeNum + 1}</span>/<span id="totalProjects">{props.projects.length}</span>
-            <button onClick={props.nextSlide}>
-              <img src={downArrow} alt="down arrow" />
-            </button>
-          </div>
-        )}
+        {true ? sidebarBack : sidebarHome}
         <div className="line" />
-        */}
+        
       </div>
 
       <div className="social">

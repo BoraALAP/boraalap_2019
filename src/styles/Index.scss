@@ -1,6 +1,9 @@
 @import './general/variables';
 @import './general/fonts';
 @import './general/base';
+@import './general/transition';
+
+
 
 body{
   font-family: $fontbody;

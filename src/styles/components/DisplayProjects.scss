@@ -3,7 +3,8 @@
 .Landing{
   display: grid;
   position: absolute;
-  transform: translateY(110vh);
+  transform: translatex(110vw);
+  transition: all 1000ms ease-in;
   img{
     width: 100%;
   }

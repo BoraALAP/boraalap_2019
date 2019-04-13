@@ -1,9 +1,9 @@
 import React from 'react';
-import '../styles/components/Landing.scss'
+import '../styles/components/DisplayProjects.scss'
 
 import { Link } from 'react-router-dom';
 
-export default function Landing(props) {
+export default function DisplayProjects(props) {
   return (
     <div className={props.className}>
       <img src={props.imageSrc} alt="Cottonist" />
