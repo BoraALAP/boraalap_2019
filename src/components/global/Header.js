@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 
 import "../../styles/global/Header.scss";
 import Bio from "../../pages/Bio";
-import DividerV from "../ui/DividerV"
-import list from "../../assets/svg/list.svg";
-import grid from "../../assets/svg/grid.svg";
+import DividerV from "../ui/DividerV";
+import Grid from "../../assets/svg/grid.js";
+import List from "../../assets/svg/list";
 
-export default function Header() {
+
+export default function Header(props) {
   const [bio, setBio] = useState({
     openState: false
   });
@@ -16,6 +17,7 @@ export default function Header() {
     setBio({ openState: !bio.openState });
   };
 
+  
   return (
     <div className="Site-header">
       <header>
@@ -26,11 +28,11 @@ export default function Header() {
           <h3>UI / UX Designer</h3>
         </div>
         <div className="rightSide">
-          <Link to="/list">
-            <img src={list} alt="list icon" />
+          <Link to="/" onClick={props.listView}>
+            <List className={props.gridIcon ? '' : 'black'}/>
           </Link>
-          <Link to="/">
-            <img src={grid} alt="grid icon" />
+          <Link to="/" onClick={props.gridView}>
+            <Grid className={props.gridIcon ? 'black' : ''}/>
           </Link>
 
           <DividerV />

@@ -2,7 +2,6 @@ import React from 'react'
 import DisplayProjects from "./DisplayProjects";
 
 export default function GridView(props) {
-  console.log(props);
 
   const {projects, slideNum} = props
   

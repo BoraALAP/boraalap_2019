@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Link } from "react-router-dom";
 
@@ -15,43 +15,43 @@ import upArrow from "../../assets/svg/arrow/up/black.svg";
 import downArrow from "../../assets/svg/arrow/down/black.svg";
 
 export default function Sidebar(props) {
-  const [state, setState] = useState({
-    sideBar: false
-  });
 
-  const changeSideBar = () => {
-    setState({ sideBar: !state.sideBar });
-  };
-
-  console.log(props.match.path);
-  
-  const location = props.location;
-
-  const sidebarBack = (<div className="projectNum">
-  <Link to="/">
-    <button onClick={changeSideBar}>
-      <img src={leftArrow} alt="left arrow" />
-    </button>
-  </Link>
-</div>)
-
-const sidebarHome = (
-  <div className="projectNum">
     
-  </div>
-)
 
+    const {data, match, nextSlide, prevSlide, projects, view} = props
+    console.log(view);
+  
 
-
- 
+  const sidebarBack = (
+    <div className="projectNum">
+      <Link to="/">
+        <button >
+          <img src={leftArrow} alt="left arrow" />
+        </button>
+      </Link>
+    </div>
+  );
+  
+  const sidebarEmpty = ( <div> </div> )
+  const sidebarGrid = (
+    <div className="projectNum">
+      <button onClick={prevSlide}>
+        <img src={upArrow} alt="up arrow" />
+      </button>
+      <span id="currentProject">{data.activeNum + 1}</span>/
+      <span id="totalProjects">{projects.length}</span>
+      <button onClick={nextSlide}>
+        <img src={downArrow} alt="down arrow" />
+      </button>
+    </div>
+    ) 
 
   return (
     <div className="Sidebar">
       <div className="Contollers">
         <div className="line" />
-        {true ? sidebarBack : sidebarHome}
+        { match.pathname.includes('projects') ? sidebarBack : (view ? sidebarGrid : sidebarEmpty )}
         <div className="line" />
-        
       </div>
 
       <div className="social">
