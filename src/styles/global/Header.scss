@@ -41,6 +41,15 @@
         height: fit-content;
         color: $gray;
       }
+      svg {
+        g {
+          fill: $gray_lightest;
+          transition: 0.5s all ease;
+        }
+        &.black g {
+          fill: $black;
+        }
+      }
     }
   }
 }

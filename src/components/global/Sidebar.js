@@ -19,7 +19,7 @@ export default function Sidebar(props) {
     
 
     const {data, match, nextSlide, prevSlide, projects, view} = props
-    console.log(view);
+    console.log(data);
   
 
   const sidebarBack = (
@@ -31,7 +31,7 @@ export default function Sidebar(props) {
       </Link>
     </div>
   );
-  
+
   const sidebarEmpty = ( <div> </div> )
   const sidebarGrid = (
     <div className="projectNum">

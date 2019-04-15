@@ -19,7 +19,26 @@
       display: grid;
       font-family: $fontheader;
       color: $gray_light;
-      font-size:1.5em;
+      font-size: 1.5em;
+
+
+      #currentProject, #totalProjects{
+        position: relative;
+        display: grid;
+        font-size: 1.5em;
+      }
+
+      #currentProject{
+        justify-self: start;
+        bottom: -0.25em;
+        left: -0.25em;
+      }
+
+      #totalProjects{
+        justify-self: end;
+        top: -0.5em;
+        right: -0.2em;
+      }
     }
 
     .line{

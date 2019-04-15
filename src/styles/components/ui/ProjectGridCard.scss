@@ -1,0 +1,29 @@
+@import "../../Index.scss";
+
+.GridProject {
+  display: grid;
+  transform: translateX(110vw);
+  transition: all 1s ease-in;
+  grid-template-areas: "img img"
+                        "text button";
+  grid-gap:4vw;
+  width: calc(100vw - 110px);
+  align-items: center;
+
+  .leftSide{
+    padding-left: 4vw;
+  }
+  img {
+    width: 100%;
+    display: grid;
+    grid-area: img;
+  }
+
+  .btn{
+    margin-right:4vw;
+  }
+
+  &.Active {
+    transform: translateX(0vw);
+  }
+}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -25,7 +25,11 @@ export default function App(props) {
     setGridView(gridView => false);
   };
 
-  const [projects, setSlides] = useState([...Projects]);
+  const [projects, setSlides] = useState([]);
+  useEffect(() => {
+    setSlides(projects => [...Projects])
+  },[])
+  
 
   const [slideNum, setSlideNum] = useState({
     activeNum: 0
@@ -68,7 +72,7 @@ export default function App(props) {
                   key={location.key}
                   className="Content"
                   transitionEnterTimeout={500}
-                  timeout={2000}
+                  timeout={5000}
                 >
                   <Switch>
                     <Route

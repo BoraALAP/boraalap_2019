@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import React from "react";
 import { TransitionGroup, Transition } from "react-transition-group";
 
 import GridView from "../components/GridView";
