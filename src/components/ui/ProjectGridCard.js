@@ -8,14 +8,16 @@ export default function ProjectGridCard(props) {
   return (
     <div className={props.className}>
       <img src={props.imageSrc} alt="Project" />
-      <div className="leftSide">
+      <div className="topSide">
         <small>{props.platform}</small>
         <h2>{props.name}</h2>
-        <p>{props.description}</p>
       </div>
+      <div className="bottomSide">
+      <p>{props.description}</p>
       <Link to={`projects/${props.link}`} onClick={props.changeSideBar}>
         <Button className={"dark"}>See the Project</Button>
       </Link>
+      </div>
     </div>
   );
 }

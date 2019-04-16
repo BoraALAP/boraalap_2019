@@ -2,28 +2,30 @@
 
 .GridProject {
   display: grid;
-  transform: translateX(110vw);
   transition: all 1s ease-in;
-  grid-template-areas: "img img"
-                        "text button";
-  grid-gap:4vw;
-  width: calc(100vw - 110px);
   align-items: center;
+  align-content: center;
+  height: 100vh;
+  grid-gap: 0.75em;
+  scroll-snap-align: start;
 
-  .leftSide{
-    padding-left: 4vw;
+  .topSide, .bottomSide{
+    padding: 0 2em;
+  }
+  .topSide{
+    margin-top:2em;
+  }
+  .bottomSide{
+    grid-gap:30px;
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
   }
   img {
     width: 100%;
     display: grid;
-    grid-area: img;
-  }
-
-  .btn{
-    margin-right:4vw;
   }
 
   &.Active {
-    transform: translateX(0vw);
   }
 }
