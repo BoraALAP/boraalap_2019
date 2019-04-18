@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
+import Content from "../../components/global/Content";
 
 export default function BonAPP(props) {
   return (
-    <div>
+    <Content>
       <h2>Bon App</h2>
-    </div>
-  )
+    </Content>
+  );
 }

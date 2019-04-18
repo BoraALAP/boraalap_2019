@@ -2,11 +2,59 @@ import React, { useState } from "react";
 
 import { Link } from "react-router-dom";
 
-import "../../styles/global/Header.scss";
+import styled from 'styled-components'
+
 import Bio from "../../pages/Bio";
-import DividerV from "../ui/DividerV";
+import Divider from "../ui/Divider";
 import Grid from "../../assets/svg/grid.js";
 import List from "../../assets/svg/list";
+import LinkButton from "../ui/LinkButton";
+
+const SiteHeader = styled.div`
+  position: fixed;
+  width: 100vw;
+  background-color: white;
+
+  header {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    padding: 15px 40px;
+    font-family: ${props => props.theme.font_header};
+    align-items: center;
+
+    div {
+      h1 {
+        font-size: 2.5em;
+        margin: 0;
+      }
+      h3 {
+        color: ${props => props.theme.gray};
+        font-size: 1em;
+        margin: 5px 0 0 25px;
+      }
+    }
+
+    .rightSide {
+      display: grid;
+      grid-auto-flow: column;
+      grid-gap: 10px;
+      justify-items: center;
+      align-items: center;
+
+      a {
+        padding: 10px;
+      }
+      button {
+        font-size: 1em;
+        padding: 10px;
+        height: fit-content;
+        color: ${props => props.theme.gray};
+      }
+
+    }
+  }`
+
 
 
 export default function Header(props) {
@@ -19,28 +67,28 @@ export default function Header(props) {
 
   
   return (
-    <div className="Site-header">
+    <SiteHeader>
       <header>
         <div>
-          <Link to="/">
-            <h1>Bora ALAP</h1>
+          <Link to="/" onClick={props.clearIcon}>
+            <h1>Bora Alap</h1>
           </Link>
-          <h3>UI / UX Designer</h3>
+          <h3>Product Designer</h3>
         </div>
         <div className="rightSide">
-          <Link to="/" onClick={props.listView}>
-            <List className={props.gridIcon ? '' : 'black'}/>
+          <Link to="/work" onClick={props.listView}>
+            <List color={(props.gridIcon === 'list' ? 'black' : 'gray')}/>
           </Link>
-          <Link to="/" onClick={props.gridView}>
-            <Grid className={props.gridIcon ? 'black' : ''}/>
+          <Link to="/work" onClick={props.gridView}>
+            <Grid color={(props.gridIcon === 'grid' ? 'black' : 'gray')}/>
           </Link>
 
-          <DividerV />
-          <button onClick={toggleBioModal}>Bio</button>
+          <Divider />
+          <LinkButton onClick={toggleBioModal}>Bio</LinkButton>
         </div>
       </header>
 
       <Bio showModal={bio.openState} toggleBioModal={toggleBioModal} />
-    </div>
+      </SiteHeader>
   );
 }

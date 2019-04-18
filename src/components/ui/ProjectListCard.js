@@ -1,16 +1,62 @@
-import React from 'react'
+import React from "react";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import Button from "./Button";
 
-const ProjectCard = (props) => {  
+import styled from "styled-components";
+import { Media } from "../../styles/Media";
+
+const Style = styled.div`
+  display: grid;
+  transition: all 1s ease-in;
+  align-items: center;
+  align-content: center;
+  height: 100vh;
+  grid-gap: 0.75em;
+  scroll-snap-align: start;
+
+  .topSide,
+  .bottomSide {
+    padding: 0 2em;
+  }
+  .topSide {
+    margin-top: 2em;
+  }
+
+  img {
+    width: 100%;
+    display: grid;
+  }
+
+  &.Active {
+  }
+`;
+
+const BottomSide = styled.div`
+  grid-gap: 2em;
+  display: grid;
+  grid-auto-flow: row;
+  align-items: center;
+  padding: 0 2em;
+  @media ${Media.tablet} {
+    grid-auto-flow: column;
+  }
+`;
+
+export default function ProjectListCard(props) {
   return (
-    <div className="ProjectCard">
-       <img src={props.imageSrc} alt="Project" />
-       <h6>{props.platform}</h6>
-       <h2>{props.name}</h2>
-       <Link className="dark" to={`projects/${props.link}`} onClick={props.changeSideBar}>See the Project</Link>
-     </div>
-  )
+    <Style className={props.className}>
+      <img src={props.imageSrc} alt="Project" />
+      <div className="topSide">
+        <small>{props.platform}</small>
+        <h2>{props.name}</h2>
+      </div>
+      <BottomSide>
+        <p>{props.description}</p>
+        <Link to={`projects/${props.link}`} onClick={props.changeSideBar}>
+          <Button>See the Project</Button>
+        </Link>
+      </BottomSide>
+    </Style>
+  );
 }
-
-export default ProjectCard

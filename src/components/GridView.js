@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProjectGridCard from "./ui/ProjectGridCard";
-import '../styles/components/GridView.scss'
+import styled from 'styled-components'
+import Content from "./global/Content";
+
+const Style = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-gap: 4vw;
+  align-content: center;
+`
 
 export default function GridView(props) {
-  const { projects, slideNum } = props;
+
+  useEffect(() => {
+    props.gridView()
+    return () => props.clearIcon
+  }, [])
+
+  
+  
 
   return (
-    <div className="GridView">
-      {projects.map((item, i) => (
+    <Content>
+    <Style>
+      {props.projects.map((item, i) => (
         <ProjectGridCard
           key={i}
-          className={slideNum.activeNum === i ? "Active GridProject" : "GridProject"}
           imageSrc={item.imageSrc}
           name={item.name}
           platform={item.platform}
@@ -18,6 +33,7 @@ export default function GridView(props) {
           link={item.link}
         />
       ))}
-    </div>
+    </Style>
+    </Content>
   );
 }

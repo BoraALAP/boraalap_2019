@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
+import { ThemeProvider } from "styled-components";
+
+import { theme } from "./styles/Light";
+import GlobalStyles from "./styles/Global";
+
 import Header from "./components/global/Header";
 import Sidebar from "./components/global/Sidebar";
 import Projects from "./data/project";
@@ -11,25 +16,29 @@ import HomePage from "./pages/HomePage";
 import Cottonist from "./pages/projects/Cottonist";
 import Ekar from "./pages/projects/Ekar";
 import BonAPP from "./pages/projects/BonAPP";
-
-import "./styles/Index.scss";
+import ListView from "./components/ListView";
+import GridView from "./components/GridView";
 
 export default function App(props) {
-  const [gridView, setGridView] = useState(true);
+  const [gridView, setGridView] = useState(undefined);
 
   const onGridView = () => {
-    setGridView(gridView => true);
+    setGridView(gridView => "grid");
+  };
+  
+  const clearIcon = () => {
+    setGridView(gridView => undefined);
   };
 
   const onListView = () => {
-    setGridView(gridView => false);
+    setGridView(gridView => "list");
   };
 
+  console.log(gridView);
   const [projects, setSlides] = useState([]);
   useEffect(() => {
-    setSlides(projects => [...Projects])
-  },[])
-  
+    setSlides(projects => [...Projects]);
+  }, []);
 
   const [slideNum, setSlideNum] = useState({
     activeNum: 0
@@ -50,14 +59,15 @@ export default function App(props) {
   };
   return (
     <BrowserRouter>
-      <div className="Website">
+      <ThemeProvider theme={theme}>
         <Route
-          render={ ({location, match}) => (
+          render={({ location, match }) => (
             <div>
               <Header
                 listView={onListView}
                 gridView={onGridView}
                 gridIcon={gridView}
+                clearIcon={clearIcon}
               />
               <Sidebar
                 match={location}
@@ -70,21 +80,29 @@ export default function App(props) {
               <TransitionGroup>
                 <CSSTransition
                   key={location.key}
-                  className="Content"
-                  transitionEnterTimeout={500}
-                  timeout={5000}
+                  transitionEnterTimeout={0}
+                  timeout={100}
                 >
                   <Switch>
+                    <Route path="/" render={routeProps => <HomePage />} exact />
                     <Route
-                      path="/"
+                      path="/work"
                       render={routeProps => (
-                        <HomePage
-                          gridView={gridView}
-                          projects={projects}
-                          slideNum={slideNum}
-                        />
-                      )}
-                      exact
+                        gridView === "grid" )? (
+                          <GridView
+                            projects={projects}
+                            {...routeProps}
+                            gridView={onGridView}
+                          />
+                        ) : (
+                          <ListView
+                            slideNum={slideNum}
+                            projects={projects}
+                            {...routeProps}
+                            listView={onListView}
+                          />
+                        )
+                      }
                     />
                     <Route path="/projects/Cottonist" component={Cottonist} />
                     <Route path="/projects/Ekar" component={Ekar} />
@@ -94,10 +112,11 @@ export default function App(props) {
                   </Switch>
                 </CSSTransition>
               </TransitionGroup>
+              <GlobalStyles />
             </div>
           )}
         />
-      </div>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }

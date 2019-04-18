@@ -1,10 +1,11 @@
 import React from 'react'
+import Content from "../../components/global/Content";
 
 export default function Ekar(props) {
     return (
-      <div>
-        <h2>Ekar</h2>
-      </div>
+      <Content>
+      <h2>Bon App</h2>
+      </Content>
     )
   }
 

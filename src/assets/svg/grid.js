@@ -1,18 +1,12 @@
 import React from "react";
 
-const Grid = ({
-  style = {},
-  fill = "#000",
-  width = "100%",
-  className = "",
-  viewBox = "0 0 32 32"
-}) => (
+const Grid = (props) => (
   <svg
     width="16px"
     height="16px"
     viewBox="0 0 16 16"
     version="1.1"
-    className={className}
+    className=''
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
   >
@@ -26,7 +20,7 @@ const Grid = ({
       <g
         id="Global-/-Header"
         transform="translate(-1253.000000, -67.000000)"
-        fill="#D8D8D8"
+        fill={props.color}
       >
         <g id="Group" transform="translate(1214.000000, 67.000000)">
           <g id="grid/deavtive" transform="translate(39.000000, 0.000000)">
