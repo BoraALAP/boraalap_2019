@@ -13,14 +13,14 @@ import LinkButton from "../ui/LinkButton";
 const SiteHeader = styled.div`
   position: fixed;
   width: 100vw;
-  background-color: white;
+  background-color: ${props => props.theme.color.white};
 
   header {
     display: grid;
     grid-auto-flow: column;
     justify-content: space-between;
     padding: 15px 40px;
-    font-family: ${props => props.theme.font_header};
+    font-family: ${props => props.theme.font.header};
     align-items: center;
 
     div {
@@ -29,7 +29,7 @@ const SiteHeader = styled.div`
         margin: 0;
       }
       h3 {
-        color: ${props => props.theme.gray};
+        color: ${props => props.theme.color.gray};
         font-size: 1em;
         margin: 5px 0 0 25px;
       }
@@ -49,11 +49,12 @@ const SiteHeader = styled.div`
         font-size: 1em;
         padding: 10px;
         height: fit-content;
-        color: ${props => props.theme.gray};
+        color: ${props => props.theme.color.gray}; 
       }
 
     }
-  }`
+  }
+`
 
 
 
@@ -64,6 +65,8 @@ export default function Header(props) {
   const toggleBioModal = () => {
     setBio({ openState: !bio.openState });
   };
+
+  const data = {...props.data}
 
   
   return (
@@ -77,10 +80,10 @@ export default function Header(props) {
         </div>
         <div className="rightSide">
           <Link to="/work" onClick={props.listView}>
-            <List color={(props.gridIcon === 'list' ? 'black' : 'gray')}/>
+            <List color={(props.workIcon === 'list' ? 'black' : 'gray')}/>
           </Link>
           <Link to="/work" onClick={props.gridView}>
-            <Grid color={(props.gridIcon === 'grid' ? 'black' : 'gray')}/>
+            <Grid color={(props.workIcon === 'grid' ? 'black' : 'gray')}/>
           </Link>
 
           <Divider />
@@ -88,7 +91,7 @@ export default function Header(props) {
         </div>
       </header>
 
-      <Bio showModal={bio.openState} toggleBioModal={toggleBioModal} />
+      <Bio showModal={bio.openState} data={data} toggleBioModal={toggleBioModal} />
       </SiteHeader>
   );
 }

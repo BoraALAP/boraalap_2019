@@ -25,7 +25,6 @@ const Style = styled.div`
 
   img {
     width: 100%;
-    display: grid;
   }
 
   &.Active {
@@ -53,9 +52,8 @@ export default function ProjectListCard(props) {
       </div>
       <BottomSide>
         <p>{props.description}</p>
-        <Link to={`projects/${props.link}`} onClick={props.changeSideBar}>
-          <Button>See the Project</Button>
-        </Link>
+        
+          <Button path={`projects/${props.link}`} onclick={props.changeSideBar}>See the Project</Button>
       </BottomSide>
     </Style>
   );

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import ProjectGridCard from "./ui/ProjectGridCard";
 import styled from 'styled-components'
-import Content from "./global/Content";
+
 
 const Style = styled.div`
   display: grid;
@@ -13,15 +13,13 @@ const Style = styled.div`
 export default function GridView(props) {
 
   useEffect(() => {
-    props.gridView()
+
+    
     return () => props.clearIcon
   }, [])
 
-  
-  
+  return ( 
 
-  return (
-    <Content>
     <Style>
       {props.projects.map((item, i) => (
         <ProjectGridCard
@@ -34,6 +32,6 @@ export default function GridView(props) {
         />
       ))}
     </Style>
-    </Content>
+
   );
 }

@@ -15,7 +15,7 @@ const Bottom = styled.div`
   grid-template-columns: auto 3em;
   margin: 1em;
   align-items: center;
-  background-color: ${props => props.theme.white}
+  background-color: ${props => props.theme.color.white};
   transform: translateY(-4em);
   box-shadow: ${props => props.theme.box_shadow};
   padding:1em 1.5em;

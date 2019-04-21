@@ -4,40 +4,41 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 import { ThemeProvider } from "styled-components";
 
-import { theme } from "./styles/Light";
+import theme from "./styles/Light";
 import GlobalStyles from "./styles/Global";
 
 import Header from "./components/global/Header";
 import Sidebar from "./components/global/Sidebar";
-import Projects from "./data/project";
+import Data from "./data/data";
 
 import NotFound from "./pages/NotFound";
 import HomePage from "./pages/HomePage";
 import Cottonist from "./pages/projects/Cottonist";
 import Ekar from "./pages/projects/Ekar";
 import BonAPP from "./pages/projects/BonAPP";
-import ListView from "./components/ListView";
-import GridView from "./components/GridView";
+import Work from "./pages/Work";
+
 
 export default function App(props) {
-  const [gridView, setGridView] = useState(undefined);
+  const [workView, setWorkView] = useState(undefined);
 
-  const onGridView = () => {
-    setGridView(gridView => "grid");
-  };
+  console.log(workView);
   
+  const onGridView = () => {
+    setWorkView(workView => "grid");
+  };
+
   const clearIcon = () => {
-    setGridView(gridView => undefined);
+    setWorkView(workView => undefined);
   };
 
   const onListView = () => {
-    setGridView(gridView => "list");
+    setWorkView(workView => "list");
   };
 
-  console.log(gridView);
   const [projects, setSlides] = useState([]);
   useEffect(() => {
-    setSlides(projects => [...Projects]);
+    setSlides(projects => [...Data.projects]);
   }, []);
 
   const [slideNum, setSlideNum] = useState({
@@ -47,32 +48,34 @@ export default function App(props) {
   const prevSlide = () => {
     setSlideNum({
       activeNum:
-        slideNum.activeNum === 0 ? Projects.length - 1 : slideNum.activeNum - 1
+        slideNum.activeNum === 0 ? projects.length - 1 : slideNum.activeNum - 1
     });
   };
 
   const nextSlide = () => {
     setSlideNum({
       activeNum:
-        slideNum.activeNum === Projects.length - 1 ? 0 : slideNum.activeNum + 1
+        slideNum.activeNum === projects.length - 1 ? 0 : slideNum.activeNum + 1
     });
   };
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <Route
-          render={({ location, match }) => (
+          render={({ location, history }) => (
             <div>
               <Header
                 listView={onListView}
                 gridView={onGridView}
-                gridIcon={gridView}
+                workIcon={workView}
                 clearIcon={clearIcon}
+                data={Data}
               />
               <Sidebar
-                match={location}
+                location={location}
+                history={history}
                 projects={projects}
-                view={gridView}
+                view={workView}
                 data={slideNum}
                 prevSlide={prevSlide}
                 nextSlide={nextSlide}
@@ -84,24 +87,18 @@ export default function App(props) {
                   timeout={100}
                 >
                   <Switch>
-                    <Route path="/" render={routeProps => <HomePage />} exact />
+                    <Route path="/" render={routeProps => <HomePage workPath={onListView}/>} exact />
                     <Route
                       path="/work"
-                      render={routeProps => (
-                        gridView === "grid" )? (
-                          <GridView
+                      render={routeProps =>
+                        <Work 
+                        slideNum={slideNum}
                             projects={projects}
-                            {...routeProps}
-                            gridView={onGridView}
-                          />
-                        ) : (
-                          <ListView
-                            slideNum={slideNum}
-                            projects={projects}
-                            {...routeProps}
-                            listView={onListView}
-                          />
-                        )
+                            onListView={onListView}
+                            onGridView={onGridView}
+                            clearIcon={clearIcon}
+                            workView={workView}
+                            />
                       }
                     />
                     <Route path="/projects/Cottonist" component={Cottonist} />

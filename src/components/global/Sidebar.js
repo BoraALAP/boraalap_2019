@@ -1,7 +1,5 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
-
 import mail from "../../assets/svg/mail.svg";
 import linkedin from "../../assets/svg/linkedin.svg";
 import github from "../../assets/svg/github.svg";
@@ -35,8 +33,8 @@ const Style = styled.div`
       padding: 20px 0;
       justify-items: center;
       display: grid;
-      font-family: ${props => props.theme.font_header};
-      color: ${props => props.theme.gray}_light;
+      font-family: ${props => props.theme.font.header};
+      color: ${props => props.theme.color.gray}_light;
       font-size: 1.5em;
 
       #currentProject,
@@ -61,7 +59,7 @@ const Style = styled.div`
 
     .line {
       width: 1px;
-      background-color: ${props => props.theme.gray};
+      background-color: ${props => props.theme.color.gray};
     }
   }
 
@@ -90,16 +88,15 @@ const Style = styled.div`
 
 
 export default function Sidebar(props) {
-  const { data, match, nextSlide, prevSlide, projects, view } = props;
-  console.log(data);
+  const { data,location, history, nextSlide, prevSlide, projects, view } = props;
+
+
 
   const sidebarBack = (
     <div className="projectNum">
-      <Link to="/">
-        <LinkButton>
+        <LinkButton onClick={history.goBack}>
           <img src={leftArrow} alt="left arrow" />
         </LinkButton>
-      </Link>
     </div>
   );
 
@@ -121,7 +118,7 @@ export default function Sidebar(props) {
     <Style>
       <div className="Contollers">
         <div className="line" />
-        {match.pathname.includes("projects")
+        {location.pathname.includes("projects")
           ? sidebarBack
           : view === 'list'
           ? sidebarList

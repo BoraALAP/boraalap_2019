@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import ProjectListCard from "./ui/ProjectListCard";
 import styled from "styled-components";
 import { Media } from "../styles/Media";
-import Content from "./global/Content";
+
 
 
 const Style = styled.div`
@@ -25,12 +25,12 @@ export default function ListView(props) {
 
 
   useEffect(() => {
-    props.listView()
+
     return () => props.clearIcon
   },[])
 
   return (
-    <Content>
+
     <Style>
       {projects.map((item, i) => (
         <ProjectListCard
@@ -46,6 +46,6 @@ export default function ListView(props) {
         />
       ))}
     </Style>
-    </Content>
+
   );
 }

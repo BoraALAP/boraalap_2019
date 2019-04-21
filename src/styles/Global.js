@@ -6,45 +6,65 @@ export default createGlobalStyle`
 
   body {
     margin:0;
+    &.ReactModal__Body--open{
+      overflow:hidden;
+    }
   }
   h2 {
-    font-family: Playfair Display, serif;
+    font-family: ${props => props.theme.font.header};
     font-size: 2.5em;
-    font-weight: bold;
-    color: ${props => props.theme.black};
+    font-weight: ${props => props.theme.weight.bold};
+    color: ${props => props.theme.color.black};
     margin: 0;
   }
   h3 {
-    font-family: Playfair Display, serif;
+    font-family: ${props => props.theme.font.header};
     font-size: 2em;
-    font-weight: bold;
-    color: ${props => props.theme.black};
+    font-weight: ${props => props.theme.weight.bold};
+    color: ${props => props.theme.color.black};
     margin: 0;
+  }
+
+  h4{
+    margin: 0;
+  }
+
+  h6{
+    font-family: ${props => props.theme.font.body};
+    color: ${props => props.theme.color.gray_dark};
+    margin: 0;
+    font-size: 0.825em;
   }
 
   a {
     display: grid;
-    color: black;
     text-decoration: none;
+    color: ${props => props.theme.color.black};
+    
   }
 
   p {
-    font-family: ${props => props.theme.font_body};
-    font-size: 13px;
-    color: ${props => props.theme.gray_dark};
-    line-height: 2em;
+    font-family: ${props => props.theme.font.body};
+    font-size: 0.813em;
+    color: ${props => props.theme.color.gray_dark};
+    line-height: 2.2em;
     margin: 0;
-    font-weight: medium;
+    font-weight: ${props => props.theme.weight.medium};
   }
 
   small {
-    font-family: ${props => props.theme.font_body};
-    font-size: 12px;
-    color: ${props => props.theme.gray_light};
+    font-family: ${props => props.theme.font.body};
+    font-size: 0.8em;
+    color: ${props => props.theme.color.gray_light};
   }
 
   img {
     width: 100%;
   }
 
+
+.ReactModal__Overlay{
+overflow-y:scroll;
+}
+  
 `;
