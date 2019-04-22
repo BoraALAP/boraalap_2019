@@ -1,9 +1,9 @@
 import React from "react";
-import Content from "../../components/global/Content";
+import ProjectWrapper from "../../components/global/ProjectWrapper";
 
 export default function Cottonist(props) {
   return (
-    <Content>
+    <ProjectWrapper>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a nulla
         quis odio pharetra lobortis. Nullam a odio elit. Integer auctor risus
@@ -182,6 +182,6 @@ export default function Cottonist(props) {
         sed malesuada justo cursus sit amet. Nam gravida diam et quam varius
         vestibulum.
       </p>
-    </Content>
+      </ProjectWrapper>
   );
 }

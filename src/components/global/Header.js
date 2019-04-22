@@ -9,19 +9,21 @@ import Divider from "../ui/Divider";
 import Grid from "../../assets/svg/grid.js";
 import List from "../../assets/svg/list";
 import LinkButton from "../ui/LinkButton";
+import Svg from "../ui/Svg";
 
 const SiteHeader = styled.div`
   position: fixed;
   width: 100vw;
   background-color: ${props => props.theme.color.white};
-
+  z-index: 1000;
   header {
     display: grid;
     grid-auto-flow: column;
     justify-content: space-between;
-    padding: 15px 40px;
+    padding: 1em 2.5em;
     font-family: ${props => props.theme.font.header};
     align-items: center;
+ 
 
     div {
       h1 {
@@ -38,16 +40,14 @@ const SiteHeader = styled.div`
     .rightSide {
       display: grid;
       grid-auto-flow: column;
-      grid-gap: 10px;
+      grid-gap: 0.5em;
       justify-items: center;
       align-items: center;
 
       a {
-        padding: 10px;
+        padding: 0.5em;
       }
       button {
-        font-size: 1em;
-        padding: 10px;
         height: fit-content;
         color: ${props => props.theme.color.gray}; 
       }
@@ -80,10 +80,14 @@ export default function Header(props) {
         </div>
         <div className="rightSide">
           <Link to="/work" onClick={props.listView}>
+            <Svg alt="List Icon">
             <List color={(props.workIcon === 'list' ? 'black' : 'gray')}/>
+            </Svg>
           </Link>
           <Link to="/work" onClick={props.gridView}>
+            <Svg alt="Grid Icon">
             <Grid color={(props.workIcon === 'grid' ? 'black' : 'gray')}/>
+            </Svg>
           </Link>
 
           <Divider />

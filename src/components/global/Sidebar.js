@@ -10,19 +10,18 @@ import leftArrow from "../../assets/svg/arrow/left/black.svg";
 import upArrow from "../../assets/svg/arrow/up/black.svg";
 import downArrow from "../../assets/svg/arrow/down/black.svg";
 
-import styled from 'styled-components'
+import styled from "styled-components";
 
-import LinkButton from '../ui/LinkButton'
-
+import Svg from "../ui/Svg";
 
 const Style = styled.div`
-
   display: grid;
   position: fixed;
   top: 80px;
   justify-items: center;
   width: 50px;
-  left: 20px;
+  left: 1em;
+  z-index: 1000;
 
   .Contollers {
     display: grid;
@@ -34,7 +33,7 @@ const Style = styled.div`
       justify-items: center;
       display: grid;
       font-family: ${props => props.theme.font.header};
-      color: ${props => props.theme.color.gray}_light;
+      color: ${props => props.theme.color.gray_light};
       font-size: 1.5em;
 
       #currentProject,
@@ -64,53 +63,47 @@ const Style = styled.div`
   }
 
   .social {
-    position: fixed;
-    bottom: 2.5vh;
-    left: calc(2.5vw + 50px);
+    position: absolute;
+    bottom: 0;
+    left: 58px;
     display: grid;
+    box-shadow: 0px 0px 40px ${props => props.theme.color.white};
+    border-radius:10px;
+    background-color: rgba(255,255,255,0.7);
     ul {
       display: grid;
       list-style-type: none;
       padding: 0;
       margin: 0;
       grid-auto-flow: column;
-      li {
-        padding: 5px;
-      }
     }
   }
-
-  img {
-    height: 20px;
-    width: 20px;
-  }
-`
-
+`;
 
 export default function Sidebar(props) {
-  const { data,location, history, nextSlide, prevSlide, projects, view } = props;
-
-
+  const {
+    data,
+    location,
+    history,
+    nextSlide,
+    prevSlide,
+    projects,
+    view
+  } = props;
 
   const sidebarBack = (
     <div className="projectNum">
-        <LinkButton onClick={history.goBack}>
-          <img src={leftArrow} alt="left arrow" />
-        </LinkButton>
+      <Svg src={leftArrow} alt="left arrow" onclick={history.goBack} />
     </div>
   );
 
   const sidebarEmpty = <div> </div>;
   const sidebarList = (
     <div className="projectNum">
-      <LinkButton onClick={prevSlide}>
-        <img src={upArrow} alt="up arrow" />
-        </LinkButton>
+      <Svg src={upArrow} alt="up arrow" onclick={prevSlide} />
       <span id="currentProject">{data.activeNum + 1}</span>/
       <span id="totalProjects">{projects.length}</span>
-      <LinkButton onClick={nextSlide}>
-        <img src={downArrow} alt="down arrow" />
-      </LinkButton>
+      <Svg src={downArrow} alt="down arrow" onclick={nextSlide} />
     </div>
   );
 
@@ -120,7 +113,7 @@ export default function Sidebar(props) {
         <div className="line" />
         {location.pathname.includes("projects")
           ? sidebarBack
-          : view === 'list'
+          : view === "list"
           ? sidebarList
           : sidebarEmpty}
         <div className="line" />
@@ -130,31 +123,31 @@ export default function Sidebar(props) {
         <ul>
           <li>
             <a href="https://www.linkedin.com">
-              <img alt="email" src={mail} />
+              <Svg alt="email" src={mail} />
             </a>
           </li>
           <li>
             <a href="https://www.linkedin2.com">
-              <img alt="linkedin" src={linkedin} />
+              <Svg alt="linkedin" src={linkedin} />
             </a>
           </li>
           <li>
             <a href="https://www.linkedin3.com">
-              <img alt="github" src={github} />
+              <Svg alt="github" src={github} />
             </a>
           </li>
           <li>
             <a href="https://www.linkedin4.com">
-              <img alt="behance" src={behance} />
+              <Svg alt="behance" src={behance} />
             </a>
           </li>
           <li>
             <a href="https://www.linkedin5.com">
-              <img alt="dribble" src={dribble} />
+              <Svg alt="dribble" src={dribble} />
             </a>
           </li>
         </ul>
       </div>
-      </Style>
+    </Style>
   );
 }

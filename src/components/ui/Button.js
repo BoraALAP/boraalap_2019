@@ -14,9 +14,10 @@ const Styled = styled.button`
   box-shadow: ${props => props.theme.box_shadow};
   border-radius: 3px;
   transition: 200ms all ease-in-out;
-
+  letter-spacing: 0.05em;
+  
   ${props =>
-    props.outline &&
+    props.outline && 
     css`
       border: 1px solid ${props => props.theme.color.black};
       color: ${props => props.theme.color.black};

@@ -18,12 +18,9 @@ import Ekar from "./pages/projects/Ekar";
 import BonAPP from "./pages/projects/BonAPP";
 import Work from "./pages/Work";
 
-
 export default function App(props) {
   const [workView, setWorkView] = useState(undefined);
 
-  console.log(workView);
-  
   const onGridView = () => {
     setWorkView(workView => "grid");
   };
@@ -50,6 +47,9 @@ export default function App(props) {
       activeNum:
         slideNum.activeNum === 0 ? projects.length - 1 : slideNum.activeNum - 1
     });
+    document
+      .querySelector(".Active")
+      .scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   const nextSlide = () => {
@@ -57,7 +57,11 @@ export default function App(props) {
       activeNum:
         slideNum.activeNum === projects.length - 1 ? 0 : slideNum.activeNum + 1
     });
+    document
+      .querySelector(".Active")
+      .scrollIntoView({ behavior: "smooth", block: "center" });
   };
+
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
@@ -87,19 +91,25 @@ export default function App(props) {
                   timeout={100}
                 >
                   <Switch>
-                    <Route path="/" render={routeProps => <HomePage workPath={onListView}/>} exact />
+                    <Route
+                      path="/"
+                      render={routeProps => <HomePage workPath={onListView} />}
+                      exact
+                    />
                     <Route
                       path="/work"
-                      render={routeProps =>
-                        <Work 
-                        slideNum={slideNum}
-                            projects={projects}
-                            onListView={onListView}
-                            onGridView={onGridView}
-                            clearIcon={clearIcon}
-                            workView={workView}
-                            />
-                      }
+                      render={routeProps => (
+                        <Work
+                          slideNum={slideNum}
+                          projects={projects}
+                          onListView={onListView}
+                          onGridView={onGridView}
+                          clearIcon={clearIcon}
+                          workView={workView}
+                          prevSlide={prevSlide}
+                          nextSlide={nextSlide}
+                        />
+                      )}
                     />
                     <Route path="/projects/Cottonist" component={Cottonist} />
                     <Route path="/projects/Ekar" component={Ekar} />

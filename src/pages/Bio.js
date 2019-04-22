@@ -3,12 +3,11 @@ import ReactModal from "react-modal";
 import styled from "styled-components";
 import Listing from "../components/Listing";
 import Cross from "../assets/svg/Cross.svg";
-import LinkButton from "../components/ui/LinkButton";
+import Svg from "../components/ui/Svg";
 
 const StyledReactModal = styled(ReactModal)`
   right: 0;
   border-radius: 0;
-  height: 100vh;
   width: 40vw;
   min-width: 300px;
   display: grid;
@@ -16,7 +15,7 @@ const StyledReactModal = styled(ReactModal)`
   background: ${props => props.theme.color.white};
   box-shadow: -2px 0px 30px rgba(0, 0, 0, 0.15), 3px 5px 10px rgba(0, 0, 0, 0.2);
   padding: 7.5vw;
-
+  z-index: 10000;
 `;
 
 const Content = styled.div`
@@ -29,15 +28,15 @@ const Content = styled.div`
   }
 `;
 
-const Title =styled.div`
+const Title = styled.div`
   grid-auto-flow: column;
   justify-content: space-between;
-    align-items: center;
-  img{
+  align-items: center;
+  img {
     height: 1.25em;
     width: 1.25em;
   }
-`
+`;
 
 export default function Bio(props) {
   const experiences = [...props.data.experiences];
@@ -61,9 +60,12 @@ export default function Bio(props) {
         <div>
           <Title>
             <h3>About</h3>
-            <LinkButton onClick={props.toggleBioModal}>
-            <img src={Cross} alt="close button" />
-            </LinkButton>
+
+            <Svg
+              src={Cross}
+              alt="close button"
+              onclick={props.toggleBioModal}
+            />
           </Title>
           <p>
             My name is <strong>Bora Alap</strong>. I’m located in{" "}

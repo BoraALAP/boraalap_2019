@@ -1,6 +1,5 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
 import Button from "./Button";
 
 import styled from "styled-components";
@@ -52,8 +51,7 @@ export default function ProjectListCard(props) {
       </div>
       <BottomSide>
         <p>{props.description}</p>
-        
-          <Button path={`projects/${props.link}`} onclick={props.changeSideBar}>See the Project</Button>
+          <Button path={`projects/${props.link}`}>See the Project</Button>
       </BottomSide>
     </Style>
   );

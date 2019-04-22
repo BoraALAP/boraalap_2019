@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Raleway:100,200,300,400,500,600,700,800,900');
@@ -62,9 +62,9 @@ export default createGlobalStyle`
     width: 100%;
   }
 
-
-.ReactModal__Overlay{
-overflow-y:scroll;
-}
+  .ReactModal__Overlay{
+  overflow-y:scroll;
+  z-index: 10000;
+  }
   
 `;

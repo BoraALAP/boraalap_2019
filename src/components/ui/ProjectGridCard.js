@@ -3,8 +3,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";
-import LinkButton from "./LinkButton";
 import rightArrow from "../../assets/svg/arrow/right/black.svg";
+import Svg from "./Svg";
 
 const Style = styled.div`
   display: grid;
@@ -12,22 +12,19 @@ const Style = styled.div`
 
 const Bottom = styled.div`
   display: grid;
-  grid-template-columns: auto 3em;
+  grid-auto-flow: column;
   margin: 1em;
   align-items: center;
   background-color: ${props => props.theme.color.white};
   transform: translateY(-4em);
   box-shadow: ${props => props.theme.box_shadow};
   padding:1em 1.5em;
+  justify-content: space-between;
 `;
 
 const Details = styled.div``;
 
-const SVG = styled(LinkButton)`
-  padding: 1em;
-  height: 3em;
-  width: 3em;
-`;
+
 
 const ProjectGridCard = props => {
   return (
@@ -38,11 +35,11 @@ const ProjectGridCard = props => {
           <small>{props.platform}</small>
           <h3>{props.name}</h3>
         </Details>
-        <Link to={`projects/${props.link}`} onClick={props.changeSideBar}>
-          <SVG>
-            <img src={rightArrow} alt="right arrow" />
-          </SVG>
+        <Link to={`projects/${props.link}`} >
+          <Svg smallSize src={rightArrow} alt="right arrow"/>
         </Link>
+
+        
       </Bottom>
     </Style>
   );
