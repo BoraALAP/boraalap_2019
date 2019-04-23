@@ -8,7 +8,13 @@ const Wrapper = styled(Content)`
   box-sizing: border-box;
   grid-gap: 1em;
   justify-items: start;
-  padding: calc(10vh + 110px) 0 0 10vw;
+  position: absolute;
+  bottom: 150px;
+  left: 5vw;
+  margin-right: calc(50px + 2em + 5vw);
+  width: fit-content;
+  min-height: inherit;
+
   h2 {
     font-size: 4em;
   }
