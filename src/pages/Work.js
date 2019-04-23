@@ -7,13 +7,9 @@ export default function WorkPage(props) {
   return (
     <Content>
       {props.workView === "grid" ? (
-        <GridView projects={props.projects}  gridView={props.onGridView} />
+        <GridView/>
       ) : (
         <ListView
-          slideNum={props.slideNum}
-          projects={props.projects}
-          
-          listView={props.onListView}
         />
       )}
     </Content>

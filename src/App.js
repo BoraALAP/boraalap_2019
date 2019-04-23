@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -11,8 +11,7 @@ import Header from "./components/global/Header";
 import Sidebar from "./components/global/Sidebar";
 
 import Data from "./data/data";
-import appReducer from "./data/reducers";
-import StateContext from "./data/stateContext";
+import { Context, appReducer, initialState } from "./data/store";
 
 import NotFound from "./pages/NotFound";
 import HomePage from "./pages/HomePage";
@@ -21,55 +20,20 @@ import Ekar from "./pages/projects/Ekar";
 import BonAPP from "./pages/projects/BonAPP";
 import Work from "./pages/Work";
 
-export default function App(props) {
-  const state = useContext(StateContext);
-  const [newstate, dispatch] = useReducer(appReducer, state);
-  // const [workView, setWorkView] = useState(undefined);
+export default function App() {
+  const [store, dispatch] = useReducer(appReducer, initialState);
 
-  console.log(state);
-
-  // const onGridView = () => {
-  //   setWorkView(workView => "grid");
-  // };
-
-  // const clearIcon = () => {
-  //   setWorkView(workView => undefined);
-  // };
-
-  // const onListView = () => {
-  //   setWorkView(workView => "list");
-  // };
-
-  // const [projects, setSlides] = useState([]);
-  
-  dispatch({ type: "SAVE_PROJECTS", Data });
-    console.log(newstate);
   useEffect(() => {
-    
+    return () => {
+      dispatch({ type: "SAVE_PROJECTS", Data })}
   }, []);
-
-  
   
 
-  // const [slideNum, setSlideNum] = useState({
-  //   activeNum: 0
-  // });
-
-  // const prevSlide = () => {
-  //   setSlideNum({
-  //     activeNum:
-  //       slideNum.activeNum === 0 ? projects.length - 1 : slideNum.activeNum - 1
-  //   });
   //   document
   //     .querySelector(".Active")
   //     .scrollIntoView({ behavior: "smooth", block: "center" });
   // };
 
-  // const nextSlide = () => {
-  //   setSlideNum({
-  //     activeNum:
-  //       slideNum.activeNum === projects.length - 1 ? 0 : slideNum.activeNum + 1
-  //   });
   //   document
   //     .querySelector(".Active")
   //     .scrollIntoView({ behavior: "smooth", block: "center" });
@@ -78,10 +42,9 @@ export default function App(props) {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <StateContext.Provider value={{newstate, dispatch}}>
           <Route
             render={({ location, history }) => (
-              <div>
+              <Context.Provider value={{ store, dispatch }}>
                 <Header data={Data} />
                 <Sidebar location={location} history={history} />
                 <TransitionGroup>
@@ -93,10 +56,10 @@ export default function App(props) {
                     <Switch>
                       <Route
                         path="/"
-                        render={routeProps => <HomePage />}
+                        component={HomePage}
                         exact
                       />
-                      <Route path="/work" render={routeProps => <Work />} />
+                      <Route path="/work" component={Work} />
                       <Route path="/projects/Cottonist" component={Cottonist} />
                       <Route path="/projects/Ekar" component={Ekar} />
                       <Route path="/projects/BonAPP" component={BonAPP} />
@@ -106,10 +69,10 @@ export default function App(props) {
                   </CSSTransition>
                 </TransitionGroup>
                 <GlobalStyles />
-              </div>
+              </Context.Provider>
             )}
           />
-        </StateContext.Provider>
+        
       </ThemeProvider>
     </BrowserRouter>
   );

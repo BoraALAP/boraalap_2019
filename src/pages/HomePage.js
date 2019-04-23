@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import Content from "../components/global/Content";
 import Button from "../components/ui/Button";
 import styled from "styled-components";
+import { Context } from '../data/store'
 
 const Wrapper = styled(Content)`
   align-content: start;
@@ -30,6 +31,7 @@ const Wrapper = styled(Content)`
 `;
 
 export default function HomePage(props) {
+  const {dispatch} = useContext(Context)
   return (
     <Wrapper>
       <h2>
@@ -42,7 +44,7 @@ export default function HomePage(props) {
         Thanks for taking your time and checking my portfolio. <br />
         Feel free to reach out to me for any inqueries.{" "}
       </p>
-      <Button onclick={props.workPath} path="/work">
+      <Button onClick={dispatch({ type: "SHOW_LIST" })} path="/work">
         Checkout the Work
       </Button>
     </Wrapper>

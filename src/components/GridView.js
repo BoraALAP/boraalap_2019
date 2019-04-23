@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import ProjectGridCard from "./ui/ProjectGridCard";
 import styled from "styled-components";
 import { Media } from "../styles/Media";
+import { Context } from '../data/store'
 
 const Style = styled.div`
   display: grid;
@@ -15,14 +16,15 @@ const Style = styled.div`
   }
 `;
 
-export default function GridView(props) {
+export default function GridView() {
+  const {store, dispatch} = useContext(Context)
   useEffect(() => {
-    return () => props.clearIcon;
+    return () => dispatch({type: 'CLEAR_ICON'});
   }, []);
 
   return (
     <Style>
-      {props.projects.map((item, i) => (
+      {store.projects.map((item, i) => (
         <ProjectGridCard
           key={i}
           imageSrc={item.imageSrc}

@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import ProjectListCard from "./ui/ProjectListCard";
 import styled from "styled-components";
 import { Media } from "../styles/Media";
+import { Context } from '../data/store'
+
 
 const Style = styled.div`
   align-items: center;
@@ -15,14 +17,16 @@ const Style = styled.div`
   }
 `;
 
-export default function ListView(props) {
-  const { projects, slideNum } = props;
+export default function ListView() {
+  const {store, dispatch} = useContext(Context)
+
+  const {projects, slideNum} = {...store}
+
   const [position, setPosition] = useState(0);
 
-  console.log(`${position} plain`);
+
   useEffect(() => {
-    console.log(`${position} effect`);
-    return () => props.clearIcon;
+    return () => dispatch({type: 'CLEAR_ICON'});
   }, []);
 
   const handleScroll = e => {
@@ -30,9 +34,9 @@ export default function ListView(props) {
 
     const window = e.target.scrollTop;
     if (position > window) {
-      return props.prevSlide;
+      return dispatch({type: 'PREV_SLIDE'})
     } else if (position < window) {
-      return props.nextSlide;
+      return dispatch({type: 'NEXT_SLIDE'})
     }
     setPosition(position => window);
     console.log(position);
@@ -43,7 +47,7 @@ export default function ListView(props) {
       {projects.map((item, i) => (
         <ProjectListCard
           key={i}
-          className={slideNum.activeNum === i ? "Active" : ""}
+          className={slideNum === i ? "Active" : ""}
           imageSrc={item.imageSrc}
           name={item.name}
           platform={item.platform}

@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
+import { Context } from "../../data/store";
 
 import { Link } from "react-router-dom";
 
-import styled from 'styled-components'
+import styled from "styled-components";
 
 import Bio from "../../pages/Bio";
 import Divider from "../ui/Divider";
@@ -23,7 +25,6 @@ const SiteHeader = styled.div`
     padding: 1em 2.5em;
     font-family: ${props => props.theme.font.header};
     align-items: center;
- 
 
     div {
       h1 {
@@ -49,14 +50,11 @@ const SiteHeader = styled.div`
       }
       button {
         height: fit-content;
-        color: ${props => props.theme.color.gray}; 
+        color: ${props => props.theme.color.gray};
       }
-
     }
   }
-`
-
-
+`;
 
 export default function Header(props) {
   const [bio, setBio] = useState({
@@ -66,9 +64,10 @@ export default function Header(props) {
     setBio({ openState: !bio.openState });
   };
 
-  const data = {...props.data}
+  const { store, dispatch } = useContext(Context);
+  const { workView } = { ...store };
+  const data = { ...props.data };
 
-  
   return (
     <SiteHeader>
       <header>
@@ -79,14 +78,14 @@ export default function Header(props) {
           <h3>Product Designer</h3>
         </div>
         <div className="rightSide">
-          <Link to="/work" onClick={props.listView}>
+          <Link to="/work" onClick={dispatch({ type: "SHOW_LIST" })}>
             <Svg alt="List Icon">
-            <List color={(props.workIcon === 'list' ? 'black' : 'gray')}/>
+              <List color={workView === "list" ? "black" : "gray"} />
             </Svg>
           </Link>
-          <Link to="/work" onClick={props.gridView}>
+          <Link to="/work" onClick={dispatch({ type: "SHOW_GRID" })}>
             <Svg alt="Grid Icon">
-            <Grid color={(props.workIcon === 'grid' ? 'black' : 'gray')}/>
+              <Grid color={workView === "grid" ? "black" : "gray"} />
             </Svg>
           </Link>
 
@@ -95,7 +94,11 @@ export default function Header(props) {
         </div>
       </header>
 
-      <Bio showModal={bio.openState} data={data} toggleBioModal={toggleBioModal} />
-      </SiteHeader>
+      <Bio
+        showModal={bio.openState}
+        data={data}
+        toggleBioModal={toggleBioModal}
+      />
+    </SiteHeader>
   );
 }

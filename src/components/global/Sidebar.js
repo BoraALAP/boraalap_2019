@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../../data/store";
 
 import mail from "../../assets/svg/mail.svg";
 import linkedin from "../../assets/svg/linkedin.svg";
@@ -68,8 +69,8 @@ const Style = styled.div`
     left: 58px;
     display: grid;
     box-shadow: 0px 0px 40px ${props => props.theme.color.white};
-    border-radius:10px;
-    background-color: rgba(255,255,255,0.7);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
     ul {
       display: grid;
       list-style-type: none;
@@ -81,15 +82,9 @@ const Style = styled.div`
 `;
 
 export default function Sidebar(props) {
-  const {
-    data,
-    location,
-    history,
-    nextSlide,
-    prevSlide,
-    projects,
-    view
-  } = props;
+  const { store, dispatch } = useContext(Context);
+  const { workView, projects, slideNum } = { ...store };
+  const { location, history } = props;
 
   const sidebarBack = (
     <div className="projectNum">
@@ -100,10 +95,18 @@ export default function Sidebar(props) {
   const sidebarEmpty = <div> </div>;
   const sidebarList = (
     <div className="projectNum">
-      <Svg src={upArrow} alt="up arrow" onclick={prevSlide} />
-      <span id="currentProject">{data.activeNum + 1}</span>/
+      <Svg
+        src={upArrow}
+        alt="up arrow"
+        onclick={dispatch({ type: "PREV_SLIDE" })}
+      />
+      <span id="currentProject">{slideNum + 1}</span>/
       <span id="totalProjects">{projects.length}</span>
-      <Svg src={downArrow} alt="down arrow" onclick={nextSlide} />
+      <Svg
+        src={downArrow}
+        alt="down arrow"
+        onclick={dispatch({ type: "NEXT_SLIDE" })}
+      />
     </div>
   );
 
@@ -113,7 +116,7 @@ export default function Sidebar(props) {
         <div className="line" />
         {location.pathname.includes("projects")
           ? sidebarBack
-          : view === "list"
+          : workView === "list"
           ? sidebarList
           : sidebarEmpty}
         <div className="line" />
