@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import ProjectGridCard from "./ui/ProjectGridCard";
 import styled from "styled-components";
 import { Media } from "../styles/Media";
@@ -17,10 +17,7 @@ const Style = styled.div`
 `;
 
 export default function GridView() {
-  const {store, dispatch} = useContext(Context)
-  useEffect(() => {
-    return () => dispatch({type: 'CLEAR_ICON'});
-  }, []);
+  const {store} = useContext(Context)
 
   return (
     <Style>

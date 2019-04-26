@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useReducer } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -6,6 +6,7 @@ import { ThemeProvider } from "styled-components";
 
 import theme from "./styles/Light";
 import GlobalStyles from "./styles/Global";
+import TransitionStyles from "./styles/Transitions";
 
 import Header from "./components/global/Header";
 import Sidebar from "./components/global/Sidebar";
@@ -20,14 +21,10 @@ import Ekar from "./pages/projects/Ekar";
 import BonAPP from "./pages/projects/BonAPP";
 import Work from "./pages/Work";
 
+
+
 export default function App() {
   const [store, dispatch] = useReducer(appReducer, initialState);
-
-  useEffect(() => {
-    return () => {
-      dispatch({ type: "SAVE_PROJECTS", Data })}
-  }, []);
-  
 
   //   document
   //     .querySelector(".Active")
@@ -42,23 +39,20 @@ export default function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
+        <Context.Provider value={{ store, dispatch }}>
           <Route
             render={({ location, history }) => (
-              <Context.Provider value={{ store, dispatch }}>
+              <>
                 <Header data={Data} />
                 <Sidebar location={location} history={history} />
                 <TransitionGroup>
                   <CSSTransition
                     key={location.key}
-                    transitionEnterTimeout={0}
-                    timeout={100}
+                    timeout={2000}
+                    classNames="transition"
                   >
                     <Switch>
-                      <Route
-                        path="/"
-                        component={HomePage}
-                        exact
-                      />
+                      <Route exact path="/" component={HomePage} />
                       <Route path="/work" component={Work} />
                       <Route path="/projects/Cottonist" component={Cottonist} />
                       <Route path="/projects/Ekar" component={Ekar} />
@@ -69,10 +63,11 @@ export default function App() {
                   </CSSTransition>
                 </TransitionGroup>
                 <GlobalStyles />
-              </Context.Provider>
+                <TransitionStyles />
+              </>
             )}
           />
-        
+        </Context.Provider>
       </ThemeProvider>
     </BrowserRouter>
   );

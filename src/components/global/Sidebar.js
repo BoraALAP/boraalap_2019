@@ -85,6 +85,7 @@ export default function Sidebar(props) {
   const { store, dispatch } = useContext(Context);
   const { workView, projects, slideNum } = { ...store };
   const { location, history } = props;
+  
 
   const sidebarBack = (
     <div className="projectNum">
@@ -98,14 +99,14 @@ export default function Sidebar(props) {
       <Svg
         src={upArrow}
         alt="up arrow"
-        onclick={dispatch({ type: "PREV_SLIDE" })}
+        onclick={() => dispatch({ type: "PREV_SLIDE" })}
       />
       <span id="currentProject">{slideNum + 1}</span>/
       <span id="totalProjects">{projects.length}</span>
       <Svg
         src={downArrow}
         alt="down arrow"
-        onclick={dispatch({ type: "NEXT_SLIDE" })}
+        onclick={() => dispatch({ type: "NEXT_SLIDE" })}
       />
     </div>
   );

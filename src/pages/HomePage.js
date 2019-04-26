@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import React, {useContext} from "react";
 import Content from "../components/global/Content";
 import Button from "../components/ui/Button";
 import styled from "styled-components";
-import { Context } from '../data/store'
+import {Context} from "../data/store"
 
 const Wrapper = styled(Content)`
   align-content: start;
@@ -30,7 +30,7 @@ const Wrapper = styled(Content)`
   }
 `;
 
-export default function HomePage(props) {
+export default function HomePage() {
   const {dispatch} = useContext(Context)
   return (
     <Wrapper>
@@ -44,7 +44,8 @@ export default function HomePage(props) {
         Thanks for taking your time and checking my portfolio. <br />
         Feel free to reach out to me for any inqueries.{" "}
       </p>
-      <Button onClick={dispatch({ type: "SHOW_LIST" })} path="/work">
+      
+      <Button onclick={() => dispatch({type: 'UPDATE_VIEW', view: 'list' })} path={'/work'}>
         Checkout the Work
       </Button>
     </Wrapper>

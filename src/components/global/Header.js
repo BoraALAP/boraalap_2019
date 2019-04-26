@@ -72,18 +72,18 @@ export default function Header(props) {
     <SiteHeader>
       <header>
         <div>
-          <Link to="/" onClick={props.clearIcon}>
+          <Link to="/" onClick={() => dispatch({ type: "UPDATE_VIEW", view: undefined })}>
             <h1>Bora Alap</h1>
           </Link>
           <h3>Product Designer</h3>
         </div>
         <div className="rightSide">
-          <Link to="/work" onClick={dispatch({ type: "SHOW_LIST" })}>
+          <Link to="/work" onClick={() => dispatch({ type: "UPDATE_VIEW", view: "list" })}>
             <Svg alt="List Icon">
               <List color={workView === "list" ? "black" : "gray"} />
             </Svg>
           </Link>
-          <Link to="/work" onClick={dispatch({ type: "SHOW_GRID" })}>
+          <Link to="/work" onClick={() => dispatch({ type: "UPDATE_VIEW", view: "grid" })}>
             <Svg alt="Grid Icon">
               <Grid color={workView === "grid" ? "black" : "gray"} />
             </Svg>

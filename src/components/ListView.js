@@ -1,9 +1,8 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import ProjectListCard from "./ui/ProjectListCard";
 import styled from "styled-components";
 import { Media } from "../styles/Media";
-import { Context } from '../data/store'
-
+import { Context } from "../data/store";
 
 const Style = styled.div`
   align-items: center;
@@ -18,30 +17,25 @@ const Style = styled.div`
 `;
 
 export default function ListView() {
-  const {store, dispatch} = useContext(Context)
+  const { store, dispatch } = useContext(Context);
 
-  const {projects, slideNum} = {...store}
+  const { projects, slideNum } = { ...store };
 
   const [position, setPosition] = useState(0);
 
-
-  useEffect(() => {
-    return () => dispatch({type: 'CLEAR_ICON'});
-  }, []);
-
   const handleScroll = e => {
     e.persist();
-
+      
     const window = e.target.scrollTop;
     if (position > window) {
-      return dispatch({type: 'PREV_SLIDE'})
+      return dispatch({ type: "PREV_SLIDE" });
     } else if (position < window) {
-      return dispatch({type: 'NEXT_SLIDE'})
+      return dispatch({ type: "NEXT_SLIDE" });
     }
-    setPosition(position => window);
-    console.log(position);
+    setPosition(window);
+    
   };
-
+  console.log(position);
   return (
     <Style onScroll={handleScroll}>
       {projects.map((item, i) => (

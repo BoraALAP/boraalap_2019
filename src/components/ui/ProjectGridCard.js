@@ -22,6 +22,15 @@ const Bottom = styled.div`
   justify-content: space-between;
 `;
 
+const ImageContainer = styled.div`
+  background-image: url(${props => props.imageSrc});
+  height: 20vh;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+
+`
+
 const Details = styled.div``;
 
 
@@ -29,7 +38,7 @@ const Details = styled.div``;
 const ProjectGridCard = props => {
   return (
     <Style>
-      <img src={props.imageSrc} alt="Project" />
+      <ImageContainer imageSrc={props.imageSrc}/>
       <Bottom>
         <Details>
           <small>{props.platform}</small>

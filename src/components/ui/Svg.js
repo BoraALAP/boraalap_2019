@@ -17,8 +17,8 @@ const Styled = styled.button`
 
 const Svg = props => {
   return (
-    <Styled onClick={props.onclick}>
-      {props.src ? <img src={props.src} alt={props.alt} /> : props.children}
+    <Styled>
+      {props.src ? <img src={props.src} alt={props.alt} onClick={props.onclick}/> : props.children}
     </Styled>
   );
 };

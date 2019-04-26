@@ -34,11 +34,11 @@ const Button = props => {
   return (
     <>
       {props.path ? (
-        <Link to={props.path} onClick={props.onclick}>
-          <Styled> {props.children} </Styled >
+        <Link onClick={props.onclick} to={props.path}>
+          <Styled > {props.children} </Styled >
         </Link>
       ) : (
-        <Styled onClick={props.onclick} >{props.children}</Styled >
+        <Styled>{props.children}</Styled >
       )}
     </>
   );

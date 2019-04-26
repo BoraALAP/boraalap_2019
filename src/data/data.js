@@ -1,7 +1,12 @@
+import bonapp from '../assets/img/bonapp.jpg'
+import cottonist from '../assets/img/cottonist.jpg'
+import ekar from '../assets/img/ekar.jpg'
+
+
 const projects = {
   projects: [
     {
-      imageSrc: "https://source.unsplash.com/random/1200x600",
+      imageSrc: cottonist,
       name: "Cottonist",
       platform: "Shopify Website",
       description:
@@ -9,7 +14,7 @@ const projects = {
       link: "Cottonist"
     },
     {
-      imageSrc: "https://source.unsplash.com/random/1200x600",
+      imageSrc: ekar,
       name: "Ekar",
       platform: "UI / UX Design",
       description:
@@ -17,7 +22,7 @@ const projects = {
       link: "Ekar"
     },
     {
-      imageSrc: "https://source.unsplash.com/random/1200x600",
+      imageSrc: bonapp,
       name: "BonAPP",
       platform: "Redesign",
       description:
