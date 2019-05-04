@@ -4,18 +4,26 @@ import styled from "styled-components";
 import Listing from "../components/Listing";
 import Cross from "../assets/svg/Cross.svg";
 import Svg from "../components/ui/Svg";
+import { Media } from '../styles/Media'
 
 const StyledReactModal = styled(ReactModal)`
   right: 0;
   border-radius: 0;
-  width: 40vw;
-  min-width: 300px;
+  width: 100vw;
   display: grid;
   position: absolute;
   background: ${props => props.theme.color.white};
   box-shadow: -2px 0px 30px rgba(0, 0, 0, 0.15), 3px 5px 10px rgba(0, 0, 0, 0.2);
   padding: 7.5vw;
   z-index: 10000;
+  box-sizing: border-box;
+  min-height: 100vh;
+  outline: none;
+
+  @media ${Media.mobileL} {
+    width: 40vw;
+    min-width: 425px;
+  }
 `;
 
 const Content = styled.div`

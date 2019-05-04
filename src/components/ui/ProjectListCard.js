@@ -11,6 +11,7 @@ const Style = styled.div`
   align-items: center;
   align-content: center;
   height: 100vh;
+  
   grid-gap: 0.75em;
   scroll-snap-align: start;
 
@@ -28,6 +29,10 @@ const Style = styled.div`
 
   &.Active {
   }
+
+  @media ${Media.tablet} {
+    padding: 0 10vw;
+  }
 `;
 
 const BottomSide = styled.div`
@@ -41,10 +46,19 @@ const BottomSide = styled.div`
   }
 `;
 
+const Img = styled.div`
+  background-image: url(${props => props.imageSrc});
+  height: 30vh;
+  width: 100%;
+  background-size: cover;
+
+
+`
+
 export default function ProjectListCard(props) {
   return (
     <Style className={props.className}>
-      <img src={props.imageSrc} alt="Project" />
+      <Img imageSrc={props.imageSrc}/>
       <div className="topSide">
         <small>{props.platform}</small>
         <h2>{props.name}</h2>

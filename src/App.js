@@ -16,25 +16,15 @@ import { Context, appReducer, initialState } from "./data/store";
 
 import NotFound from "./pages/NotFound";
 import HomePage from "./pages/HomePage";
+
+import Work from "./pages/Work";
+
 import Cottonist from "./pages/projects/Cottonist";
 import Ekar from "./pages/projects/Ekar";
 import BonAPP from "./pages/projects/BonAPP";
-import Work from "./pages/Work";
-
-
 
 export default function App() {
   const [store, dispatch] = useReducer(appReducer, initialState);
-
-  //   document
-  //     .querySelector(".Active")
-  //     .scrollIntoView({ behavior: "smooth", block: "center" });
-  // };
-
-  //   document
-  //     .querySelector(".Active")
-  //     .scrollIntoView({ behavior: "smooth", block: "center" });
-  // };
 
   return (
     <BrowserRouter>
@@ -54,10 +44,9 @@ export default function App() {
                     <Switch>
                       <Route exact path="/" component={HomePage} />
                       <Route path="/work" component={Work} />
-                      <Route path="/projects/Cottonist" component={Cottonist} />
-                      <Route path="/projects/Ekar" component={Ekar} />
-                      <Route path="/projects/BonAPP" component={BonAPP} />
-
+                      <Route path="/projects/Cottonist" render={routeProps => <Cottonist routeProps={routeProps} />} />
+                      <Route path="/projects/Ekar" render={routeProps => <Ekar routeProps={routeProps} />} />
+                      <Route path="/projects/BonAPP" render={routeProps => <BonAPP routeProps={routeProps} />} />
                       <Route component={NotFound} />
                     </Switch>
                   </CSSTransition>

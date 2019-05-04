@@ -49,6 +49,9 @@ export const appReducer = (state, action) => {
       return state.slideNum === state.projects.length - 1
         ? { ...state, slideNum: 0 }
         : { ...state, slideNum: state.slideNum + 1 };
+
+    case 'UPDATE_SLIDE_NUM':
+      return { ...state, slideNum: action.slideNum}
     default:
       throw new Error();
   }

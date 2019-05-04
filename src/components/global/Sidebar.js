@@ -1,5 +1,6 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { Context } from "../../data/store";
+import { Link } from "react-router-dom";
 
 import mail from "../../assets/svg/mail.svg";
 import linkedin from "../../assets/svg/linkedin.svg";
@@ -15,14 +16,20 @@ import styled from "styled-components";
 
 import Svg from "../ui/Svg";
 
+import {Media} from '../../styles/Media'
+
 const Style = styled.div`
-  display: grid;
+  display: none;
   position: fixed;
   top: 80px;
   justify-items: center;
   width: 50px;
   left: 1em;
   z-index: 1000;
+
+  @media ${Media.mobileL}{
+    display: grid;
+  }
 
   .Contollers {
     display: grid;
@@ -66,11 +73,10 @@ const Style = styled.div`
   .social {
     position: absolute;
     bottom: 0;
-    left: 58px;
+    padding: 0px 16px;
+    left: 40px;
     display: grid;
-    box-shadow: 0px 0px 40px ${props => props.theme.color.white};
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: ${props => props.theme.color.white};
     ul {
       display: grid;
       list-style-type: none;
@@ -84,12 +90,22 @@ const Style = styled.div`
 export default function Sidebar(props) {
   const { store, dispatch } = useContext(Context);
   const { workView, projects, slideNum } = { ...store };
-  const { location, history } = props;
-  
+  const { location } = props;
+
+  useEffect(() => {
+    console.log("test");
+    if (document.querySelector(".ActiveProject")) {
+      document
+        .querySelector(".ActiveProject")
+        .scrollIntoView({ behavior: "smooth" });
+    }
+  });
 
   const sidebarBack = (
     <div className="projectNum">
-      <Svg src={leftArrow} alt="left arrow" onclick={history.goBack} />
+      <Link to={"/work"}>
+        <Svg src={leftArrow} alt="left arrow" />
+      </Link>
     </div>
   );
 

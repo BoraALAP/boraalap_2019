@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Styled = styled.button`
+const Styled = styled.div`
   background-color: transparent;
   border: none;
   font-size: 16px;

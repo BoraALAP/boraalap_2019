@@ -1,8 +1,10 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ProjectListCard from "./ui/ProjectListCard";
 import styled from "styled-components";
 import { Media } from "../styles/Media";
 import { Context } from "../data/store";
+
+import VisibilitySensor from 'react-visibility-sensor'
 
 const Style = styled.div`
   align-items: center;
@@ -20,35 +22,31 @@ export default function ListView() {
   const { store, dispatch } = useContext(Context);
 
   const { projects, slideNum } = { ...store };
+  const [num, setNum] = useState(store.slideNum)
 
-  const [position, setPosition] = useState(0);
+  useEffect(() => {
+    dispatch({type:'UPDATE_SLIDE_NUM', slideNum: num})
+    console.log('test 2');
+  }, [num]);
 
-  const handleScroll = e => {
-    e.persist();
-      
-    const window = e.target.scrollTop;
-    if (position > window) {
-      return dispatch({ type: "PREV_SLIDE" });
-    } else if (position < window) {
-      return dispatch({ type: "NEXT_SLIDE" });
-    }
-    setPosition(window);
-    
-  };
-  console.log(position);
+  console.log(num);
+  
   return (
-    <Style onScroll={handleScroll}>
+    <Style >
       {projects.map((item, i) => (
+        <VisibilitySensor key={i} onChange={() => setNum(i)}>
         <ProjectListCard
           key={i}
-          className={slideNum === i ? "Active" : ""}
+          className={slideNum === i ? "ActiveProject" : ""}
           imageSrc={item.imageSrc}
           name={item.name}
           platform={item.platform}
           description={item.description}
           link={item.link}
         />
+        </VisibilitySensor>
       ))}
     </Style>
+
   );
 }

@@ -13,6 +13,8 @@ import List from "../../assets/svg/list";
 import LinkButton from "../ui/LinkButton";
 import Svg from "../ui/Svg";
 
+import {Media} from '../../styles/Media'
+
 const SiteHeader = styled.div`
   position: fixed;
   width: 100vw;
@@ -20,11 +22,16 @@ const SiteHeader = styled.div`
   z-index: 1000;
   header {
     display: grid;
-    grid-auto-flow: column;
-    justify-content: space-between;
+    grid-auto-flow: row;
+    justify-content: center;
     padding: 1em 2.5em;
     font-family: ${props => props.theme.font.header};
     align-items: center;
+
+    @media ${Media.mobileL} {
+      grid-auto-flow: column;
+      justify-content: space-between;
+    }
 
     div {
       h1 {

@@ -1,5 +1,6 @@
 import React from "react";
 import ProjectWrapper from "../../components/global/ProjectWrapper";
+import ProjectPageButtons from "../../components/global/ProjectPageButtons";
 
 export default function Cottonist(props) {
   return (
@@ -182,6 +183,8 @@ export default function Cottonist(props) {
         sed malesuada justo cursus sit amet. Nam gravida diam et quam varius
         vestibulum.
       </p>
+
+      <ProjectPageButtons props={props.routeProps}/>
       </ProjectWrapper>
   );
 }

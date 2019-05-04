@@ -66,5 +66,5 @@ export default createGlobalStyle`
   overflow-y:scroll;
   z-index: 10000;
   }
-  
-`;
+
+`
