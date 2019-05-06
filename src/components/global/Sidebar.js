@@ -2,11 +2,7 @@ import React, { useEffect, useContext } from "react";
 import { Context } from "../../data/store";
 import { Link } from "react-router-dom";
 
-import mail from "../../assets/svg/mail.svg";
-import linkedin from "../../assets/svg/linkedin.svg";
-import github from "../../assets/svg/github.svg";
-import behance from "../../assets/svg/behance.svg";
-import dribble from "../../assets/svg/dribble.svg";
+
 
 import leftArrow from "../../assets/svg/arrow/left/black.svg";
 import upArrow from "../../assets/svg/arrow/up/black.svg";
@@ -16,7 +12,9 @@ import styled from "styled-components";
 
 import Svg from "../ui/Svg";
 
+
 import {Media} from '../../styles/Media'
+import Social from "./Social";
 
 const Style = styled.div`
   display: none;
@@ -69,22 +67,6 @@ const Style = styled.div`
       background-color: ${props => props.theme.color.gray};
     }
   }
-
-  .social {
-    position: absolute;
-    bottom: 0;
-    padding: 0px 16px;
-    left: 40px;
-    display: grid;
-    background-color: ${props => props.theme.color.white};
-    ul {
-      display: grid;
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-      grid-auto-flow: column;
-    }
-  }
 `;
 
 export default function Sidebar(props) {
@@ -93,7 +75,6 @@ export default function Sidebar(props) {
   const { location } = props;
 
   useEffect(() => {
-    console.log("test");
     if (document.querySelector(".ActiveProject")) {
       document
         .querySelector(".ActiveProject")
@@ -139,35 +120,7 @@ export default function Sidebar(props) {
         <div className="line" />
       </div>
 
-      <div className="social">
-        <ul>
-          <li>
-            <a href="https://www.linkedin.com">
-              <Svg alt="email" src={mail} />
-            </a>
-          </li>
-          <li>
-            <a href="https://www.linkedin2.com">
-              <Svg alt="linkedin" src={linkedin} />
-            </a>
-          </li>
-          <li>
-            <a href="https://www.linkedin3.com">
-              <Svg alt="github" src={github} />
-            </a>
-          </li>
-          <li>
-            <a href="https://www.linkedin4.com">
-              <Svg alt="behance" src={behance} />
-            </a>
-          </li>
-          <li>
-            <a href="https://www.linkedin5.com">
-              <Svg alt="dribble" src={dribble} />
-            </a>
-          </li>
-        </ul>
-      </div>
+      <Social hideSmall absolute />
     </Style>
   );
 }

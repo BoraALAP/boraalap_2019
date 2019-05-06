@@ -4,7 +4,8 @@ import styled from "styled-components";
 import Listing from "../components/Listing";
 import Cross from "../assets/svg/Cross.svg";
 import Svg from "../components/ui/Svg";
-import { Media } from '../styles/Media'
+import { Media } from "../styles/Media";
+import Social from "../components/global/Social";
 
 const StyledReactModal = styled(ReactModal)`
   right: 0;
@@ -30,13 +31,15 @@ const Content = styled.div`
   display: grid;
   align-content: start;
   grid-gap: 40px;
-  div {
-    display: grid;
-    grid-gap: 16px;
-  }
+`;
+
+const Rows = styled.div`
+  display: grid;
+  grid-gap: 16px;
 `;
 
 const Title = styled.div`
+  display: grid;
   grid-auto-flow: column;
   justify-content: space-between;
   align-items: center;
@@ -53,6 +56,7 @@ export default function Bio(props) {
 
   return (
     <StyledReactModal
+      closeTimeoutMS={600}
       isOpen={props.showModal}
       contentLabel="Bora Alap Biography"
       onRequestClose={props.toggleBioModal}
@@ -65,7 +69,7 @@ export default function Bio(props) {
       scrollable={true}
     >
       <Content>
-        <div>
+        <Rows>
           <Title>
             <h3>About</h3>
 
@@ -88,15 +92,17 @@ export default function Bio(props) {
             also, working as a UX person on many projects, lets me create usable
             UI elements and Design Systems for companies.
           </p>
-        </div>
-        <div>
+        </Rows>
+        <Rows>
           <h4>Experiences</h4>
           <Listing list={experiences} />
-        </div>
-        <div>
+        </Rows>
+        <Rows>
           <h4>Educations</h4>
           <Listing list={education} />
-        </div>
+        </Rows>
+
+        <Social hideSmall={false} />
       </Content>
     </StyledReactModal>
   );

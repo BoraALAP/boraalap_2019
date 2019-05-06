@@ -26,10 +26,7 @@ export default function ListView() {
 
   useEffect(() => {
     dispatch({type:'UPDATE_SLIDE_NUM', slideNum: num})
-    console.log('test 2');
   }, [num]);
-
-  console.log(num);
   
   return (
     <Style >

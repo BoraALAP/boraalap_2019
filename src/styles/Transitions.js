@@ -2,22 +2,27 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
 
-  .transition-enter-active{
+  .transition-enter{
     transform: translateX(100vw);
-    transition: 1000ms all;
+    transition: ${props => props.theme.animation.fast} all;
     opacity: 0.01;
-    
   }   
 
-  .transition-enter-done{
+  .transition-enter.transition-enter-active{
     transform: translateX(0vw);
-    transition: 1000ms all;
+    transition: ${props => props.theme.animation.fast} all;
+    opacity: 1;
+  }  
+
+  .transition-exit{
+    transform: translateX(0vw);
+    transition: ${props => props.theme.animation.fast} all;
     opacity: 1;
   }         
   
-  .transition-leave-active{
+  .transition-exit.transition-exit-active{
     transform: translateX(-100vw);
-    transition: 1000ms all 500ms;
+    transition: ${props => props.theme.animation.fast} all;
     opacity: 0.01;
     z-index: 100;
   }   

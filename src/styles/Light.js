@@ -18,7 +18,15 @@ const theme = {
     light: 200
   },
 
-  box_shadow: "2px 2px 5px rgba(0,0,0, 0.1), 3px 5px 10px rgba(0,0,0, 0.2)"
+  box_shadow: "2px 2px 5px rgba(0,0,0, 0.1), 3px 5px 10px rgba(0,0,0, 0.2)",
+
+  animation:{
+    faster:"300ms",
+    fast: "600ms",
+    normal: "1000ms",
+    slow: "1400ms",
+    slower: "1750ms"
+  }
 };
 
 export default theme;

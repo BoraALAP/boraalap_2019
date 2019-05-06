@@ -11,7 +11,7 @@ const Style = styled.div`
   align-items: center;
   align-content: center;
   height: 100vh;
-  
+  min-height: 700px;
   grid-gap: 0.75em;
   scroll-snap-align: start;
 

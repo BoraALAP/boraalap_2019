@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { Media } from "./Media";
 
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900|Raleway:100,200,300,400,500,600,700,800,900');
@@ -9,6 +10,10 @@ export default createGlobalStyle`
     &.ReactModal__Body--open{
       overflow:hidden;
     }
+  }
+  h1 {
+    font-size: 1.5em;
+    margin: 0;
   }
   h2 {
     font-family: ${props => props.theme.font.header};
@@ -65,6 +70,29 @@ export default createGlobalStyle`
   .ReactModal__Overlay{
   overflow-y:scroll;
   z-index: 10000;
+  transform: translateX(100vw);
+  transition: all ${props => props.theme.animation.fast} ease;
+
+    &--after-open{
+      transform: translateX(0vw);
+    }
+
+    &--before-close{
+      transform: translateX(100vw);
+    }
   }
 
-`
+
+
+  @media ${Media.mobileL}{
+    h1 {
+      font-size: 2.5em;
+    }
+    h2 {
+      font-size: 2em;
+    }
+    h3 {
+      font-size: 1.5em;  
+    }
+  }
+`;

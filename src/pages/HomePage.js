@@ -20,6 +20,9 @@ const Wrapper = styled(Content)`
     left: 5vw;
     margin-right: calc(50px + 2em + 5vw);
     padding: 0;
+    h2 {
+      font-size: 2.75em;
+    }
   }
 
   h2 {
