@@ -11,7 +11,6 @@ import TransitionStyles from "./styles/Transitions";
 import Header from "./components/global/Header";
 import Sidebar from "./components/global/Sidebar";
 
-import Data from "./data/data";
 import { Context, appReducer, initialState } from "./data/store";
 
 import NotFound from "./pages/NotFound";
@@ -33,7 +32,7 @@ export default function App() {
           <Route
             render={({ location, history }) => (
               <>
-                <Header data={Data} />
+                <Header />
                 <Sidebar location={location} history={history} />
                 <TransitionGroup>
                   <CSSTransition

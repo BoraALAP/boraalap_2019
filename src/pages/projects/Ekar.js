@@ -1,14 +1,14 @@
 import React from 'react'
-import Content from "../../components/global/Content";
-import ProjectPageButtons from '../../components/global/ProjectPageButtons';
+import ProjectWrapper from "../../components/projectItems/ProjectWrapper";
+import ProjectPageButtons from '../../components/projectItems/ProjectPageButtons';
 
 export default function Ekar(props) {
     return (
-      <Content>
+      <ProjectWrapper>
       <h2>Ekar</h2>
 
       <ProjectPageButtons props={props.routeProps}/>
-      </Content>
+      </ProjectWrapper>
     )
   }
 

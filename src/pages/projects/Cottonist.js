@@ -1,10 +1,13 @@
 import React from "react";
-import ProjectWrapper from "../../components/global/ProjectWrapper";
-import ProjectPageButtons from "../../components/global/ProjectPageButtons";
+import ProjectWrapper from "../../components/projectItems/ProjectWrapper";
+import ProjectHeader from "../../components/projectItems/ProjectHeader";
+import ProjectPageButtons from "../../components/projectItems/ProjectPageButtons";
+
 
 export default function Cottonist(props) {
   return (
-    <ProjectWrapper>
+    <ProjectWrapper> 
+      <ProjectHeader info={"Cottonist"} />
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a nulla
         quis odio pharetra lobortis. Nullam a odio elit. Integer auctor risus

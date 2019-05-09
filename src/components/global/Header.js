@@ -85,7 +85,6 @@ export default function Header(props) {
 
   const { store, dispatch } = useContext(Context);
   const { workView } = { ...store };
-  const data = { ...props.data };
 
   return (
     <SiteHeader>
@@ -124,7 +123,6 @@ export default function Header(props) {
 
       <Bio
         showModal={bio.openState}
-        data={data}
         toggleBioModal={toggleBioModal}
         inProp={bio.openState}
       />

@@ -6,6 +6,7 @@ import Cross from "../assets/svg/Cross.svg";
 import Svg from "../components/ui/Svg";
 import { Media } from "../styles/Media";
 import Social from "../components/global/Social";
+import {experiences, education} from "../data/data";
 
 const StyledReactModal = styled(ReactModal)`
   right: 0;
@@ -50,9 +51,6 @@ const Title = styled.div`
 `;
 
 export default function Bio(props) {
-  const experiences = [...props.data.experiences];
-
-  const education = [...props.data.education];
 
   return (
     <StyledReactModal
