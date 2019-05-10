@@ -62,10 +62,7 @@ const Style = styled.div`
       }
     }
 
-    .line {
-      width: 1px;
-      background-color: ${props => props.theme.color.gray};
-    }
+    
   }
 `;
 

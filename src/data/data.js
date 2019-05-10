@@ -10,8 +10,8 @@ export const projects = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis viverra neque sit amet pretium. Vivamus non turpis felis. Pellentesque nec felis vitae dui tristique maximus vitae eu est. ",
     link: "Cottonist",
-    projectAttributes:
-      ["E-commerce", "UI / UX", "Web Design", "Shopify Website", "Brand Strategy", "SEO / Analytics", "Branding"]
+    projectAttributes:["E-commerce", "UI / UX", "Liquid Code", "Shopify Website", "SEO / Analytics", "Branding"],
+    website: "https://cottonist.ca"
   },
   {
     imageSrc: ekar,

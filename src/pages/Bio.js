@@ -1,7 +1,7 @@
 import React from "react";
 import ReactModal from "react-modal";
 import styled from "styled-components";
-import Listing from "../components/Listing";
+import { BioListing } from "../components/ui/Ul";
 import Cross from "../assets/svg/Cross.svg";
 import Svg from "../components/ui/Svg";
 import { Media } from "../styles/Media";
@@ -93,11 +93,11 @@ export default function Bio(props) {
         </Rows>
         <Rows>
           <h4>Experiences</h4>
-          <Listing list={experiences} />
+          <BioListing list={experiences} />
         </Rows>
         <Rows>
           <h4>Educations</h4>
-          <Listing list={education} />
+          <BioListing list={education} />
         </Rows>
 
         <Social hideSmall={false} />

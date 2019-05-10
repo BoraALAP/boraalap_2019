@@ -6,7 +6,7 @@ import ProjectPageButtons from "../../components/projectItems/ProjectPageButtons
 
 export default function Cottonist(props) {
   return (
-    <ProjectWrapper> 
+    <ProjectWrapper padding> 
       <ProjectHeader info={"Cottonist"} />
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a nulla

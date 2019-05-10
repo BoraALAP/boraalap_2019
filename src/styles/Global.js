@@ -17,14 +17,14 @@ export default createGlobalStyle`
   }
   h2 {
     font-family: ${props => props.theme.font.header};
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: ${props => props.theme.weight.bold};
     color: ${props => props.theme.color.black};
     margin: 0;
   }
   h3 {
     font-family: ${props => props.theme.font.header};
-    font-size: 2em;
+    font-size: 1.75em;
     font-weight: ${props => props.theme.weight.bold};
     color: ${props => props.theme.color.black};
     margin: 0;
@@ -59,13 +59,34 @@ export default createGlobalStyle`
 
   small {
     font-family: ${props => props.theme.font.body};
-    font-size: 0.8em;
+    font-size: 0.75em;
     color: ${props => props.theme.color.gray_light};
   }
 
   img {
     width: 100%;
   }
+
+  ul{
+    padding-left: 1em;
+    margin: 0;
+    padding-left: 2em;
+    display: grid;
+    li{
+      list-style-type: square;
+      p{
+        color: ${props => props.theme.color.gray};
+        font-weight: ${props => props.theme.weight.bold};
+      }
+    }
+  }
+
+
+
+  .line {
+      width: 1px;
+      background-color: ${props => props.theme.color.gray_lightest};
+    }
 
   .ReactModal__Overlay{
   overflow-y:scroll;
@@ -89,7 +110,7 @@ export default createGlobalStyle`
       font-size: 2.5em;
     }
     h2 {
-      font-size: 2em;
+      font-size: 1.75em;
     }
     h3 {
       font-size: 1.5em;  

@@ -4,8 +4,8 @@ const theme = {
     white: "#fff",
     gray_dark: "#484848",
     gray: "#757575",
-    gray_light: "#8a8a8a",
-    gray_lightest: "#9B9B9B"
+    gray_light: "#9B9B9B",
+    gray_lightest: "#D8D8D8"
   },
   font: {
     header: "Playfair Display",

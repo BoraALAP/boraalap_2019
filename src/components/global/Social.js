@@ -25,6 +25,10 @@ export default function(props) {
       padding: 0;
       margin: 0;
       grid-auto-flow: column;
+      grid-gap:0;
+      li{
+        list-style:none;
+      }
     }
 
     @media ${Media.mobileL} {

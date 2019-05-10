@@ -4,7 +4,7 @@ import ProjectPageButtons from "../../components/projectItems/ProjectPageButtons
 
 export default function BonAPP(props) {
   return (
-    <ProjectWrapper>
+    <ProjectWrapper padding>
       <h2>Bon App</h2>
 
       <ProjectPageButtons props={props.routeProps}/>

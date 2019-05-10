@@ -61,7 +61,7 @@ const TitleContainer = styled.div`
   width: calc(100vw - 4em);
   justify-content: space-between;
   h3 {
-    color: ${props => props.theme.color.gray};
+    color: ${props => props.theme.color.gray_light};
     font-size: 1em;
     margin: inherit;
   }

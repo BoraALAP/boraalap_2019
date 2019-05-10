@@ -38,6 +38,7 @@ const Details = styled.div``;
 const ProjectGridCard = props => {
   return (
     <Style>
+      
       <ImageContainer imageSrc={props.imageSrc}/>
       <Bottom>
         <Details>

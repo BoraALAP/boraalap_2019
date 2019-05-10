@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import ProjectGridCard from "./ui/ProjectGridCard";
 import styled from "styled-components";
-import { Media } from "../styles/Media";
+import ProjectWrapper from "../components/projectItems/ProjectWrapper";
 import { Context } from '../data/store'
 
 const Style = styled.div`
@@ -9,18 +9,15 @@ const Style = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   grid-gap: 4vw;
   align-content: center;
-  padding-top: 120px;
-
-  @media ${Media.laptop} {
-    padding: 0 10vw;
-  }
 `;
 
 export default function GridView() {
   const {store} = useContext(Context)
 
   return (
+    <ProjectWrapper padding>
     <Style>
+      
       {store.projects.map((item, i) => (
         <ProjectGridCard
           key={i}
@@ -31,6 +28,8 @@ export default function GridView() {
           link={item.link}
         />
       ))}
+      
     </Style>
+    </ProjectWrapper>
   );
 }

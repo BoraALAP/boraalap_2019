@@ -3,6 +3,7 @@ import React from "react";
 import Button from "./Button";
 
 import styled from "styled-components";
+import ProjectWrapper from "../../components/projectItems/ProjectWrapper";
 import { Media } from "../../styles/Media";
 
 const Style = styled.div`
@@ -29,10 +30,6 @@ const Style = styled.div`
 
   &.Active {
   }
-
-  @media ${Media.tablet} {
-    padding: 0 10vw;
-  }
 `;
 
 const BottomSide = styled.div`
@@ -51,22 +48,22 @@ const Img = styled.div`
   height: 30vh;
   width: 100%;
   background-size: cover;
-
-
-`
+`;
 
 export default function ProjectListCard(props) {
   return (
     <Style className={props.className}>
-      <Img imageSrc={props.imageSrc}/>
-      <div className="topSide">
-        <small>{props.platform}</small>
-        <h2>{props.name}</h2>
-      </div>
-      <BottomSide>
-        <p>{props.description}</p>
+      <ProjectWrapper>
+        <Img imageSrc={props.imageSrc} />
+        <div className="topSide">
+          <small>{props.platform}</small>
+          <h2>{props.name}</h2>
+        </div>
+        <BottomSide>
+          <p>{props.description}</p>
           <Button path={`projects/${props.link}`}>See the Project</Button>
-      </BottomSide>
+        </BottomSide>
+      </ProjectWrapper>
     </Style>
   );
 }

@@ -4,7 +4,7 @@ import ProjectPageButtons from '../../components/projectItems/ProjectPageButtons
 
 export default function Ekar(props) {
     return (
-      <ProjectWrapper>
+      <ProjectWrapper padding>
       <h2>Ekar</h2>
 
       <ProjectPageButtons props={props.routeProps}/>
