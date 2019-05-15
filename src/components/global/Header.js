@@ -70,7 +70,7 @@ const TitleContainer = styled.div`
     grid-auto-flow: row;
     width: inherit;
     h3 {
-      margin: 5px 0 0 25px;
+      margin: 0.5em 0 0 1.5em;
     }
   }
 `;

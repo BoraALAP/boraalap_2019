@@ -14,7 +14,7 @@ const NextButton = styled.div`
   border: none;
   display: grid;
   grid-auto-flow: column;
-  grid-gap: 8px;
+  grid-gap: 0.5em;
   align-items: center;
 `;
 
@@ -23,7 +23,7 @@ const PrevButton = styled.div`
   display: grid;
   grid-auto-flow: column;
   border: none;
-  grid-gap: 8px;
+  grid-gap: 0.5em;
   align-items: center;
 `;
 

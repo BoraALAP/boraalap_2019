@@ -5,7 +5,8 @@ const theme = {
     gray_dark: "#484848",
     gray: "#757575",
     gray_light: "#9B9B9B",
-    gray_lightest: "#D8D8D8"
+    gray_lighter: "#d8d8d8",
+    gray_lightest: "#fbfbfb"
   },
   font: {
     header: "Playfair Display",
@@ -18,8 +19,10 @@ const theme = {
     light: 200
   },
 
-  box_shadow: "2px 2px 5px rgba(0,0,0, 0.1), 3px 5px 10px rgba(0,0,0, 0.2)",
+  radius: '3px',
 
+  box_shadow: "2px 2px 5px rgba(0,0,0, 0.1), 3px 5px 10px rgba(0,0,0, 0.2)",
+  image_shadow: "0.125em 0.25em 1.5em rgba(0,0,0,0.2)",
   animation:{
     faster:"300ms",
     fast: "600ms",

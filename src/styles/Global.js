@@ -17,14 +17,14 @@ export default createGlobalStyle`
   }
   h2 {
     font-family: ${props => props.theme.font.header};
-    font-size: 2em;
+    font-size: 1.75em;
     font-weight: ${props => props.theme.weight.bold};
     color: ${props => props.theme.color.black};
     margin: 0;
   }
   h3 {
     font-family: ${props => props.theme.font.header};
-    font-size: 1.75em;
+    font-size: 1.25em;
     font-weight: ${props => props.theme.weight.bold};
     color: ${props => props.theme.color.black};
     margin: 0;
@@ -32,6 +32,7 @@ export default createGlobalStyle`
 
   h4{
     margin: 0;
+    font-size: 1em;
   }
 
   h6{
@@ -85,15 +86,26 @@ export default createGlobalStyle`
 
   .line {
       width: 1px;
-      background-color: ${props => props.theme.color.gray_lightest};
+      background-color: ${props => props.theme.color.gray_lighter};
     }
 
   .ReactModal__Overlay{
-  overflow-y:scroll;
   z-index: 10000;
-  transform: translateX(100vw);
-  transition: all ${props => props.theme.animation.fast} ease;
+  opacity: 0;
+  transition: opacity ${props => props.theme.animation.fast} ease;
+  overflow-y:scroll;
+    &--after-open{
+      opacity: 1;
+    }
 
+    &--before-close{
+      opacity: 0;
+    }
+
+    .ReactModal__Content{
+    transform: translateX(100vw);
+    
+    transition: transform ${props => props.theme.animation.fast} 0.6s ease;
     &--after-open{
       transform: translateX(0vw);
     }
@@ -102,6 +114,9 @@ export default createGlobalStyle`
       transform: translateX(100vw);
     }
   }
+  }
+
+  
 
 
 
@@ -110,10 +125,14 @@ export default createGlobalStyle`
       font-size: 2.5em;
     }
     h2 {
-      font-size: 1.75em;
+      font-size: 2em;
     }
     h3 {
       font-size: 1.5em;  
     }
+    h4{
+    margin: 0;
+    font-size: 1.25em;
+  }
   }
 `;

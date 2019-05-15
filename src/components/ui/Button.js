@@ -4,15 +4,15 @@ import React from "react";
 import {Link} from 'react-router-dom'
 
 const Styled = styled.button`
-  font-size: 14px;
+  font-size: 0.875em;
   font-family: ${props => props.theme.font.header};
   font-weight: ${props => props.theme.weight.bold};
   background-color: ${props => props.theme.color.black};
   border: none;
   color: ${props => props.theme.color.white};
-  padding: 20px 50px;
+  padding: 1.250em 3em;
   box-shadow: ${props => props.theme.box_shadow};
-  border-radius: 3px;
+  border-radius: ${props => props.theme.radius};;
   transition: 200ms all ease-in-out;
   letter-spacing: 0.05em;
   

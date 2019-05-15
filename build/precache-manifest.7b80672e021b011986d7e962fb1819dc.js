@@ -1,15 +1,15 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "041fb3b9d614b6610283c51ef37ce4d0",
+    "revision": "e7d32cd8f931e9fce20ef01afbbe32c4",
     "url": "/index.html"
   },
   {
-    "revision": "0f6a29e5ae184ac3a4b5",
-    "url": "/static/js/2.cbc37aa8.chunk.js"
+    "revision": "7e07a89237d27dc893f8",
+    "url": "/static/js/2.cf8dfbbf.chunk.js"
   },
   {
-    "revision": "f9325a4e8edc3d2592fe",
-    "url": "/static/js/main.6f7392d8.chunk.js"
+    "revision": "81f97519c3563e88e809",
+    "url": "/static/js/main.beb3b419.chunk.js"
   },
   {
     "revision": "42ac5946195a7306e2a5",
@@ -44,8 +44,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/static/media/bonapp.8303344c.jpg"
   },
   {
-    "revision": "f7340910757d5c3c0162b10fed001290",
-    "url": "/static/media/cottonist.f7340910.jpg"
+    "revision": "99c9b17a2a30d0d9e816a40163b089ad",
+    "url": "/static/media/cottonist.99c9b17a.jpg"
   },
   {
     "revision": "93c3f630b27b372ad5fc633353271cb9",

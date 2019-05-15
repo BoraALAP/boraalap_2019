@@ -4,14 +4,14 @@ import styled from "styled-components";
 const Styled = styled.div`
   background-color: transparent;
   border: none;
-  font-size: 16px;
+  font-size: ${props => props.smallSize ? "0.875em" : "1em"};
   display: grid;
   justify-content: center;
   align-content: center;
   padding: 0.5em;
   img {
-    height: ${props => (props.smallSize ? "1em" : "1.5em")};
-    width: ${props => (props.smallSize ? "1em" : "1.5em")};
+    height: ${props => props.smallSize ? "1em" : "1.5em"};
+    width: ${props => props.smallSize ? "1em" : "1.5em"};
   }
 `;
 

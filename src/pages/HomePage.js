@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Content from "../components/global/Content";
 import Button from "../components/ui/Button";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { Context } from "../data/store";
 import { Media } from '../styles/Media'
 
@@ -12,11 +12,11 @@ const Wrapper = styled(Content)`
   justify-items: start;
   width: fit-content;
   min-height: inherit;
-  padding: 200px 10vw;
+  padding: 12.500em 10vw 2em;
 
   @media ${Media.mobileL} {
     position: absolute;
-    bottom: 150px;
+    bottom: 10em;
     left: 5vw;
     margin-right: calc(50px + 2em + 5vw);
     padding: 0;
@@ -39,15 +39,37 @@ const Wrapper = styled(Content)`
   }
 `;
 
+const keyFrames = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+`
+
+const Wave = styled.div`
+  animation: ${keyFrames} ${props => props.theme.animation.slower} 0s infinite both;
+  animation-timing-function: cubic-bezier(.57,.06,.49,.96);
+  transform-origin: 85% 85%;
+  transform: rotate(0deg);
+  display: inline-block;
+`
+
 export default function HomePage() {
   const { dispatch } = useContext(Context);
   return (
     <Wrapper>
       <h2>
         Welcome{" "}
+        <Wave>
         <span role="img" aria-label="Waving">
           👋
         </span>
+        </Wave>
       </h2>
       <p>
         Thanks for taking your time and checking my portfolio. <br />

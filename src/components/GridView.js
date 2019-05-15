@@ -6,7 +6,7 @@ import { Context } from '../data/store'
 
 const Style = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
   grid-gap: 4vw;
   align-content: center;
 `;

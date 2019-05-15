@@ -10,7 +10,14 @@ export const projects = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis viverra neque sit amet pretium. Vivamus non turpis felis. Pellentesque nec felis vitae dui tristique maximus vitae eu est. ",
     link: "Cottonist",
-    projectAttributes:["E-commerce", "UI / UX", "Liquid Code", "Shopify Website", "SEO / Analytics", "Branding"],
+    projectAttributes: [
+      "E-commerce",
+      "UI / UX",
+      "Liquid Code",
+      "Shopify Website",
+      "SEO / Analytics",
+      "Branding"
+    ],
     website: "https://cottonist.ca"
   },
   {
@@ -20,8 +27,14 @@ export const projects = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis viverra neque sit amet pretium. Vivamus non turpis felis. Pellentesque nec felis vitae dui tristique maximus vitae eu est. ",
     link: "Ekar",
-    projectAttributes:
-      "E-commerce, UI / UX, Web Design, Shopify Website, Brand Strategy, SEO / Analytics, Branding"
+    projectAttributes: [
+      "E-commerce",
+      "UI / UX",
+      "Liquid Code",
+      "Shopify Website",
+      "SEO / Analytics",
+      "Branding"
+    ]
   },
   {
     imageSrc: bonapp,
@@ -30,11 +43,16 @@ export const projects = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec mattis viverra neque sit amet pretium. Vivamus non turpis felis. Pellentesque nec felis vitae dui tristique maximus vitae eu est. ",
     link: "BonAPP",
-    projectAttributes:
-      "E-commerce, UI / UX, Web Design, Shopify Website, Brand Strategy, SEO / Analytics, Branding"
+    projectAttributes: [
+      "E-commerce",
+      "UI / UX",
+      "Liquid Code",
+      "Shopify Website",
+      "SEO / Analytics",
+      "Branding"
+    ]
   }
 ];
-
 
 export const experiences = [
   {
@@ -58,7 +76,6 @@ export const experiences = [
     note: "2014 | Art Director Intern"
   }
 ];
-
 
 export const education = [
   {

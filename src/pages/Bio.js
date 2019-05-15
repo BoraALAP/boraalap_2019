@@ -15,7 +15,7 @@ const StyledReactModal = styled(ReactModal)`
   display: grid;
   position: absolute;
   background: ${props => props.theme.color.white};
-  box-shadow: -2px 0px 30px rgba(0, 0, 0, 0.15), 3px 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: -0.125em 0 2em rgba(0, 0, 0, 0.15), 0.125em 0.25em 0.5em rgba(0, 0, 0, 0.2);
   padding: 7.5vw;
   z-index: 10000;
   box-sizing: border-box;
@@ -24,19 +24,19 @@ const StyledReactModal = styled(ReactModal)`
 
   @media ${Media.mobileL} {
     width: 40vw;
-    min-width: 425px;
+    min-width: 25em;
   }
 `;
 
 const Content = styled.div`
   display: grid;
   align-content: start;
-  grid-gap: 40px;
+  grid-gap: 2em;
 `;
 
 const Rows = styled.div`
   display: grid;
-  grid-gap: 16px;
+  grid-gap: 1em;
 `;
 
 const Title = styled.div`
@@ -51,10 +51,9 @@ const Title = styled.div`
 `;
 
 export default function Bio(props) {
-
   return (
     <StyledReactModal
-      closeTimeoutMS={600}
+      closeTimeoutMS={1000}
       isOpen={props.showModal}
       contentLabel="Bora Alap Biography"
       onRequestClose={props.toggleBioModal}

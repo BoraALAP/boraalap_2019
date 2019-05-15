@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const MultiUl = styled.ul`
-  grid-gap: 16px;
+  grid-gap: 1em;
 
   p{
     font-weight: ${props => props.theme.weight.regular}

@@ -1,13 +1,14 @@
 import React from "react";
 import ProjectWrapper from "../../components/projectItems/ProjectWrapper";
+import ProjectHeader from "../../components/projectItems/ProjectHeader";
 import ProjectPageButtons from "../../components/projectItems/ProjectPageButtons";
 
 export default function BonAPP(props) {
   return (
     <ProjectWrapper padding>
-      <h2>Bon App</h2>
+      <ProjectHeader info={"BonAPP"} />
 
-      <ProjectPageButtons props={props.routeProps}/>
+      <ProjectPageButtons props={props.routeProps} />
     </ProjectWrapper>
   );
 }

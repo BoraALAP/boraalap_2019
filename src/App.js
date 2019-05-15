@@ -8,6 +8,7 @@ import theme from "./styles/Light";
 import GlobalStyles from "./styles/Global";
 import TransitionStyles from "./styles/Transitions";
 
+
 import Header from "./components/global/Header";
 import Sidebar from "./components/global/Sidebar";
 
@@ -21,6 +22,7 @@ import Work from "./pages/Work";
 import Cottonist from "./pages/projects/Cottonist";
 import Ekar from "./pages/projects/Ekar";
 import BonAPP from "./pages/projects/BonAPP";
+import Footer from "./components/global/Footer";
 
 export default function App() {
   const [store, dispatch] = useReducer(appReducer, initialState);
@@ -52,6 +54,8 @@ export default function App() {
                 </TransitionGroup>
                 <GlobalStyles />
                 <TransitionStyles />
+                
+                <Footer />
               </>
             )}
           />

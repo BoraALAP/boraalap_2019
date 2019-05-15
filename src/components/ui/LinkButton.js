@@ -8,7 +8,7 @@ export default styled.button`
     color: ${props => props.theme.color.gray };
     transition: 200ms all ease-in-out;
     font-size: 1em;
-    padding: 10px;
+    padding: 0.5em;
     &:hover {
         color: ${props => props.theme.color.black};
     }
