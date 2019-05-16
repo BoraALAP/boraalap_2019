@@ -1,8 +1,8 @@
 import React from "react";
-import { projects } from "../../data/data";
+
 import Button from "../ui/Button";
 import ImageContainer from "../../components/ui/ImageContainer";
-import { Simple } from "../ui/Ul";
+import { ProjectListing } from "../ui/Ul";
 
 import { Media } from "../../styles/Media";
 
@@ -12,21 +12,37 @@ const Container = styled.div`
   display: grid;
   padding: 3em 5vw;
   grid-gap: 1em 2em;
-  grid-auto-flow: row;
   align-items: center;
-  grid-template-rows: repeat(3, max-content);
   align-items: start;
+  grid-template-areas:
+    "title"
+    "description"
+    "listing"
+    "link";
+
+  .title {
+    display: grid;
+    grid-area: title;
+  }
+
+  .listing {
+    display: grid;
+    grid-area: listing;
+  }
 
   @media ${Media.tablet} {
-    grid-auto-flow: column;
+    grid-template-areas:
+      "title title"
+      "description link"
+      "listing listing";
   }
 `;
 
 const Website = styled.div`
   display: grid;
+  grid-area: link;
 
   @media ${Media.tablet} {
-    grid-auto-flow: column;
     grid-row: 2 / 3;
   }
 `;
@@ -38,17 +54,17 @@ const Header = props => {
     <>
       <ImageContainer imageSrc={project.imageSrc} />
       <Container>
-        <div>
+        <div className="title">
           <small>{project.platform}</small>
           <h2>{project.name}</h2>
         </div>
         <p>{project.description}</p>
-        <Simple list={project.projectAttributes} />
+        <ProjectListing list={project.projectAttributes} />
 
         {project.website && (
           <Website>
             <a href={project.website} target="_blank" rel="noopener noreferrer">
-              <Button>Visit Website</Button>
+              <Button>Visit the Website</Button>
             </a>
           </Website>
         )}

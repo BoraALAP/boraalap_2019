@@ -27,6 +27,11 @@ export default function ListView() {
   useEffect(() => {
     dispatch({type:'UPDATE_SLIDE_NUM', slideNum: num})
   }, [num]);
+
+  const truncate = (text) => {
+    return `${text.slice(0, 200)}...`;
+    
+  }
   
   return (
     <Style >
@@ -38,7 +43,7 @@ export default function ListView() {
           imageSrc={item.imageSrc}
           name={item.name}
           platform={item.platform}
-          description={item.description}
+          description={ truncate(item.description)}
           link={item.link}
         />
         </VisibilitySensor>

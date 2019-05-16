@@ -19,12 +19,7 @@ const Colors = styled.div`
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-gap: 3vh;
   }
-
-  .colortext {
-    padding: 2em;
-    background: ${props => props.theme.color.white};
-  }
-`; 
+`;
 
 const Logo = styled.div`
   background: ${props => props.theme.color.gray_lightest};
@@ -43,16 +38,11 @@ const Logo = styled.div`
     }
   }
 
-  .logotext {
+  .logoText {
     padding: 2em;
-    
-    p{
-    position: sticky;
-    top: 200px;
+    display: grid;
+    align-items: center;
   }
-  }
-
- 
 `;
 
 const LogoContainer = styled.div`
@@ -81,7 +71,7 @@ const Branding = props => {
               <img src={project.logo4} alt="" className="lastlogo" />
             )}
           </div>
-          <div className="logotext"><p>{project.logotext}</p></div>
+          <div className="logoText"><p>{project.logotext}</p></div>
         </LogoContainer>
       </Logo>
       <Colors>
@@ -95,7 +85,7 @@ const Branding = props => {
           <Swatches background={project.greycolor2} title={`Grey Medium`} />
           <Swatches background={project.greycolor3} title={`Grey Light`} />
         </div>
-        <div className="colortext"><p>{project.colortext}</p></div>
+        <div className="colorText"><p>{project.colortext}</p></div>
       </Colors>
     </Container>
   );

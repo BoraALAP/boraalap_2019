@@ -4,14 +4,32 @@ import styled from "styled-components";
 const MultiUl = styled.ul`
   grid-gap: 1em;
 
-  p{
-    font-weight: ${props => props.theme.weight.regular}
+  p {
+    font-weight: ${props => props.theme.weight.regular};
+  }
+`;
+
+const ProjectUl = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(min-content, 143px));
+  justify-items: start;
+  grid-gap:1em;
+  padding: 0;
+  li {
+    display: grid;
+    background: ${props => props.theme.color.gray_lighter};
+    border-radius: 2em;
+    padding: 0.2em 1em;
+
+    h6 {
+      color: ${props => props.theme.color.white};
+    }
   }
 `;
 
 export const Simple = props => {
   return (
-    <div>
+    <>
       <ul>
         {props.list.map((entry, i) => (
           <li key={i}>
@@ -19,13 +37,13 @@ export const Simple = props => {
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 };
 
 export const BioListing = props => {
   return (
-    <div>
+    <>
       <MultiUl>
         {props.list.map((entry, i) => (
           <li key={i}>
@@ -34,6 +52,20 @@ export const BioListing = props => {
           </li>
         ))}
       </MultiUl>
-    </div>
+    </>
+  );
+};
+
+export const ProjectListing = props => {
+  return (
+    <>
+      <ProjectUl className="listing">
+        {props.list.map((entry, i) => (
+          <li key={i}>
+            <h6>{entry}</h6>
+          </li>
+        ))}
+      </ProjectUl>
+    </>
   );
 };

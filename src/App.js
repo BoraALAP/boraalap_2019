@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components"; 
 
 import theme from "./styles/Light";
 import GlobalStyles from "./styles/Global";
@@ -26,7 +26,7 @@ import Footer from "./components/global/Footer";
 
 export default function App() {
   const [store, dispatch] = useReducer(appReducer, initialState);
-
+  
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>

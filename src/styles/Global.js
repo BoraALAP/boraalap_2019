@@ -82,6 +82,12 @@ export default createGlobalStyle`
     }
   }
 
+  .colorText {
+    padding: 2em;
+    background: ${props => props.theme.color.white};
+    align-items: center;
+  }
+
 
 
   .line {

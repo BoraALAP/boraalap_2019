@@ -4,8 +4,8 @@ import ProjectPageButtons from "../../components/projectItems/ProjectPageButtons
 import ProjectHeader from "../../components/projectItems/ProjectHeader";
 
 import styled from "styled-components";
-import ProjectStyles from "../../styles/Project";
 import { Media } from "../../styles/Media";
+import ProjectStyles from "../../styles/Project";
 import Branding from "../../components/projectItems/Branding";
 
 import { projects } from "../../data/data";

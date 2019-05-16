@@ -16,14 +16,6 @@ const Style = styled.div`
   grid-gap: 0.75em;
   scroll-snap-align: start;
 
-  .topSide,
-  .bottomSide {
-    padding: 0 3em;
-  }
-  .topSide {
-    margin-top: 2em;
-  }
-
   img {
     width: 100%;
   }
@@ -33,13 +25,33 @@ const Style = styled.div`
 `;
 
 const BottomSide = styled.div`
-  grid-gap: 2em;
   display: grid;
-  grid-auto-flow: row;
+  padding: 3em 5vw;
+  grid-gap: 1em 2em;
   align-items: center;
-  padding: 0 3em;
+  align-items: start;
+  grid-template-areas:
+    "title"
+    "description"
+    "link";
+
+  .title {
+    display: grid;
+    grid-area: title;
+  }
+  @media ${Media.tablet} {
+    grid-template-areas:
+      "title title"
+      "description link"
+  }
+`;
+
+const Website = styled.div`
+  display: grid;
+  grid-area: link;
   @media ${Media.tablet} {
     grid-auto-flow: column;
+    grid-row: 2 / 3;
   }
 `;
 
@@ -48,13 +60,18 @@ export default function ProjectListCard(props) {
     <Style className={props.className}>
       <ProjectWrapper>
         <ImageContainer imageSrc={props.imageSrc} />
-        <div className="topSide">
-          <small>{props.platform}</small>
-          <h2>{props.name}</h2>
-        </div>
         <BottomSide>
-          <p>{props.description}</p>
-          <Button path={`projects/${props.link}`}>See the Project</Button>
+          <div className="title">
+            <small>{props.platform}</small>
+            <h2>{props.name}</h2>
+          </div>
+          <div>
+            <p>{props.description}</p>
+            
+          </div>
+          <Website>
+            <Button path={`projects/${props.link}`}>See the Project</Button>
+            </Website>
         </BottomSide>
       </ProjectWrapper>
     </Style>
