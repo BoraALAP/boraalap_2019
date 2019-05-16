@@ -32,8 +32,7 @@ const Website = styled.div`
 `;
 
 const Header = props => {
-  const data = projects.filter(item => item.name === props.info);
-  const project = data[0];
+  const project = props.info;
 
   return (
     <>
@@ -46,13 +45,13 @@ const Header = props => {
         <p>{project.description}</p>
         <Simple list={project.projectAttributes} />
 
-        {project.website &&
-        <Website>
-          <a href={project.website} target="_blank" rel="noopener noreferrer">
-            <Button>Visit Website</Button>
-          </a>
-        </Website>
-        }
+        {project.website && (
+          <Website>
+            <a href={project.website} target="_blank" rel="noopener noreferrer">
+              <Button>Visit Website</Button>
+            </a>
+          </Website>
+        )}
       </Container>
     </>
   );

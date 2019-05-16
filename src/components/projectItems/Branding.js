@@ -4,6 +4,10 @@ import Swatches from "./Swatches";
 
 import { Media } from '../../styles/Media'
 
+const Container = styled.div`
+  margin-bottom: 3em;
+`
+
 const Colors = styled.div`
   background: ${props => props.theme.color.gray_lightest};
   padding: 5vw;
@@ -20,7 +24,7 @@ const Colors = styled.div`
     padding: 2em;
     background: ${props => props.theme.color.white};
   }
-`;
+`; 
 
 const Logo = styled.div`
   background: ${props => props.theme.color.gray_lightest};
@@ -32,7 +36,7 @@ const Logo = styled.div`
     display: grid;
     grid-gap: 3vh;
     align-items: center;
-    padding: 2em;
+    padding: 3em 2em;
 
     img {
       max-height: 150px;
@@ -62,36 +66,38 @@ const LogoContainer = styled.div`
 `
 
 const Branding = props => {
+
+  const project = props.info
   return (
-    <>
+    <Container>
       <Logo>
         <h2>Logo</h2>
         <LogoContainer>
           <div className="logos">
-            <img src={props.logo1} alt="" className="toplogo" />
-            {props.logo2 && <img src={props.logo2} alt="" />}
-            {props.logo3 && <img src={props.logo3} alt="" />}
-            {props.logo4 && (
-              <img src={props.logo4} alt="" className="lastlogo" />
+            <img src={project.logo1} alt="" className="toplogo" />
+            {project.logo2 && <img src={project.logo2} alt="" />}
+            {project.logo3 && <img src={project.logo3} alt="" />}
+            {project.logo4 && (
+              <img src={project.logo4} alt="" className="lastlogo" />
             )}
           </div>
-          <div className="logotext"><p>{props.logotext}</p></div>
+          <div className="logotext"><p>{project.logotext}</p></div>
         </LogoContainer>
       </Logo>
       <Colors>
         <h2>Colors</h2>
         <div className="swatches">
-          <Swatches background={props.primarycolor} title={`Primary`} />
-          {props.secondarycolor && (
-            <Swatches background={props.secondarycolor} title={`Secondary`} />
+          <Swatches background={project.primarycolor} title={`Primary`} />
+          {project.secondarycolor && (
+            <Swatches background={project.secondarycolor} title={`Secondary`} />
           )}
-          <Swatches background={props.greycolor1} title={`Grey Dark`} />
-          <Swatches background={props.greycolor2} title={`Grey Medium`} />
-          <Swatches background={props.greycolor3} title={`Grey Light`} />
+          <Swatches background={project.greycolor1} title={`Grey Dark`} />
+          <Swatches background={project.greycolor2} title={`Grey Medium`} />
+          <Swatches background={project.greycolor3} title={`Grey Light`} />
         </div>
-        <p className="colortext">{props.colortext}</p>
+        <div className="colortext"><p>{project.colortext}</p></div>
       </Colors>
-    </>
+    </Container>
   );
 };
 

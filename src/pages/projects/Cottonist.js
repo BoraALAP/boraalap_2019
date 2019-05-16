@@ -10,6 +10,7 @@ import { Media } from "../../styles/Media";
 import { projects } from "../../data/data";
 
 import ImageContainer from "../../components/ui/ImageContainer";
+import Branding from "../../components/projectItems/Branding";
 
 import cart_mobile from "../../assets/img/cottonist/cottonist_mobile_1.jpg";
 import search_mobile from "../../assets/img/cottonist/cottonist_mobile_2.jpg";
@@ -34,28 +35,16 @@ import text from "../../assets/img/cottonist/cottonist_web_6.jpg";
 import enterence from "../../assets/img/cottonist/cottonist_web_10.jpg";
 import menu from "../../assets/img/cottonist/cottonist_web_11.jpg";
 import search from "../../assets/img/cottonist/cottonist_web_12.jpg";
-import logo1 from "../../assets/img/cottonist/logo1.svg";
-import logo2 from "../../assets/img/cottonist/logo2.svg";
-import logo3 from "../../assets/img/cottonist/logo3.svg";
-import logo4 from "../../assets/img/cottonist/logo4.svg";
-import Branding from "../../components/projectItems/Branding";
 
 export default function Cottonist(props) {
+  const data = projects.filter(item => item.name === "Cottonist");
+  const project = data[0];
   return (
     <>
       <ProjectWrapper padding>
-        <ProjectHeader info={"Cottonist"} />
+        <ProjectHeader info={project} />
 
-        <Branding
-          primarycolor={"#03131B"}
-          greycolor1={"#23242D"}
-          greycolor2={"#999AAA"}
-          greycolor3={"#FBFCFF"}
-          colortext={`Simplicity is the key for this brand we have focus on using monocromic look across the whole website.`}
-          logo1={logo2}
-          logo2={logo3}
-          logotext={`Simplicity is the key for this brand we have focus on using monocromic look across the whole website.`}
-        />
+        <Branding info={project} />
 
         <img src={cart} className="desktopImage" />
 

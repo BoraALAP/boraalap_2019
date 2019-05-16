@@ -6,7 +6,8 @@ const theme = {
     gray: "#757575",
     gray_light: "#9B9B9B",
     gray_lighter: "#d8d8d8",
-    gray_lightest: "#fbfbfb"
+    gray_lightest: "#fbfbfb",
+    yellow: '#D68400'
   },
   font: {
     header: "Playfair Display",

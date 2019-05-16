@@ -6,6 +6,9 @@ import ProjectHeader from "../../components/projectItems/ProjectHeader";
 import styled from "styled-components";
 import ProjectStyles from "../../styles/Project";
 import { Media } from "../../styles/Media";
+import Branding from "../../components/projectItems/Branding";
+
+import { projects } from "../../data/data";
 
 import enterence from "../../assets/img/ekar/enterence3.jpg";
 import invite_friend from "../../assets/img/ekar/invite_friend.jpg";
@@ -39,15 +42,20 @@ import time_selecter2 from "../../assets/img/ekar/time_selecter2.jpg";
 import update_your_trip1 from "../../assets/img/ekar/update_your_trip1.jpg";
 import update_your_trip2 from "../../assets/img/ekar/update_your_trip2.jpg";
 
+import ekarLogo from "../../assets/img/ekar/ekarLogo.svg";
+
 export default function Ekar(props) {
+  const data = projects.filter(item => item.name === "Ekar");
+  const project = data[0];
   return (
     <>
-    <ProjectWrapper padding>
-      <ProjectHeader info={"Ekar"}  />
+      <ProjectWrapper padding>
+        <ProjectHeader info={project} />
 
-      <ProjectPageButtons props={props.routeProps} />
-    </ProjectWrapper>
-    <ProjectStyles />
+        <Branding info={project} />
+        <ProjectPageButtons props={props.routeProps} />
+      </ProjectWrapper>
+      <ProjectStyles />
     </>
   );
 }
