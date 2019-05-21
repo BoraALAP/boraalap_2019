@@ -9,12 +9,13 @@ import rightArrow from "../../assets/svg/arrow/right/black.svg";
 
 import { Context } from "../../data/store";
 
+import { toTop } from "../../components/GlobalFunctions";
+
 const NextButton = styled.div`
   background: ${props => props.theme.color.white};
   border: none;
   display: grid;
   grid-auto-flow: column;
-  grid-gap: 0.5em;
   align-items: center;
 `;
 
@@ -23,7 +24,6 @@ const PrevButton = styled.div`
   display: grid;
   grid-auto-flow: column;
   border: none;
-  grid-gap: 0.5em;
   align-items: center;
 `;
 
@@ -34,17 +34,21 @@ const Container = styled.div`
   padding: 4vh 4vw;
 `;
 
+const P = styled.p`
+  font-weight: ${props => props.theme.weight.bold};
+`;
+
 const ProjectPageButtons = props => {
   const { store } = useContext(Context);
 
   const pageTitle = props.props.match.path.replace("/projects/", "");
   const indexOfProject = store.projects.findIndex(
-    item => item.name === pageTitle
+    item => item.link.replace(/ /g, "") === pageTitle
   );
   let next;
   let prev;
 
-  const newArr = store.projects.filter(item => item.name !== pageTitle);
+  const newArr = store.projects.filter(item => item.link !== pageTitle);
 
   if (indexOfProject === store.projects.length - 1) {
     next = 0;
@@ -59,15 +63,15 @@ const ProjectPageButtons = props => {
 
   return (
     <Container>
-      <Link to={`/projects/${newArr[prev].name}`}>
+      <Link to={`/projects/${newArr[prev].link}`} onClick={toTop}>
         <PrevButton>
           <Svg src={leftArrow} alt="left arrow" />
-          <p>Previous</p>
+          <P>{newArr[prev].name}</P>
         </PrevButton>
       </Link>
-      <Link to={`/projects/${newArr[next].name}`}>
+      <Link to={`/projects/${newArr[next].link}`} onClick={toTop}>
         <NextButton>
-          <p>Next</p>
+          <P>{newArr[next].name}</P>
           <Svg src={rightArrow} alt="right arrow" />
         </NextButton>
       </Link>

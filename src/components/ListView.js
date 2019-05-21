@@ -4,17 +4,27 @@ import styled from "styled-components";
 import { Media } from "../styles/Media";
 import { Context } from "../data/store";
 
+import { toTop } from "../components/GlobalFunctions";
+
 import VisibilitySensor from 'react-visibility-sensor'
 
 const Style = styled.div`
   align-items: center;
   align-content: center;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: none;
+  overflow-y: auto;
+  height: auto;
+  grid-gap: 5em;
+  display: grid;
+  padding-top: 10em;
+
+  @media ${Media.mobileL} {
+    padding: 0 10vw;
+    scroll-snap-type: y mandatory;
   overflow-y: scroll;
   height: 100vh;
+  display: block;
 
-  @media ${Media.laptop} {
-    padding: 0 10vw;
   }
 `;
 
@@ -27,6 +37,10 @@ export default function ListView() {
   useEffect(() => {
     dispatch({type:'UPDATE_SLIDE_NUM', slideNum: num})
   }, [num]);
+
+  useEffect(() => {
+    toTop()
+  }, [])
 
   const truncate = (text) => {
     return `${text.slice(0, 200)}...`;

@@ -6,7 +6,7 @@ import Cross from "../assets/svg/Cross.svg";
 import Svg from "../components/ui/Svg";
 import { Media } from "../styles/Media";
 import Social from "../components/global/Social";
-import {experiences, education} from "../data/data";
+import { experiences, education } from "../data/data";
 
 const StyledReactModal = styled(ReactModal)`
   right: 0;
@@ -15,7 +15,8 @@ const StyledReactModal = styled(ReactModal)`
   display: grid;
   position: absolute;
   background: ${props => props.theme.color.white};
-  box-shadow: -0.125em 0 2em rgba(0, 0, 0, 0.15), 0.125em 0.25em 0.5em rgba(0, 0, 0, 0.2);
+  box-shadow: -0.125em 0 2em rgba(0, 0, 0, 0.15),
+    0.125em 0.25em 0.5em rgba(0, 0, 0, 0.2);
   padding: 7.5vw;
   z-index: 10000;
   box-sizing: border-box;
@@ -23,7 +24,7 @@ const StyledReactModal = styled(ReactModal)`
   outline: none;
 
   @media ${Media.mobileL} {
-    width: 40vw;
+    width: 50vw;
     min-width: 25em;
   }
 `;
@@ -86,7 +87,7 @@ export default function Bio(props) {
             </strong>{" "}
             and <strong>design</strong> of native apps and websites that work
             on. Having coding background allows me to see from developers’ eyes;
-            also, working as a UX person on many projects, lets me create usable
+            also, working as an UX person on many projects, letting me create usable
             UI elements and Design Systems for companies.
           </p>
         </Rows>

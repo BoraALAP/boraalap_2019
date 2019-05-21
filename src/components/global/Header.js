@@ -100,7 +100,7 @@ export default function Header(props) {
         </TitleContainer>
         <div className="rightSide">
           <Link
-            to="/work"
+            to="/list"
             onClick={() => dispatch({ type: "UPDATE_VIEW", view: "list" })}
           >
             <Svg alt="List Icon">
@@ -108,7 +108,7 @@ export default function Header(props) {
             </Svg>
           </Link>
           <Link
-            to="/work"
+            to="/grid"
             onClick={() => dispatch({ type: "UPDATE_VIEW", view: "grid" })}
           >
             <Svg alt="Grid Icon">

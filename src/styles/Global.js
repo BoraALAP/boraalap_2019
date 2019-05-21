@@ -82,48 +82,12 @@ export default createGlobalStyle`
     }
   }
 
-  .colorText {
-    padding: 2em;
-    background: ${props => props.theme.color.white};
-    align-items: center;
-  }
-
 
 
   .line {
       width: 1px;
       background-color: ${props => props.theme.color.gray_lighter};
     }
-
-  .ReactModal__Overlay{
-  z-index: 10000;
-  opacity: 0;
-  transition: opacity ${props => props.theme.animation.fast} ease;
-  overflow-y:scroll;
-    &--after-open{
-      opacity: 1;
-    }
-
-    &--before-close{
-      opacity: 0;
-    }
-
-    .ReactModal__Content{
-    transform: translateX(100vw);
-    
-    transition: transform ${props => props.theme.animation.fast} 0.6s ease;
-    &--after-open{
-      transform: translateX(0vw);
-    }
-
-    &--before-close{
-      transform: translateX(100vw);
-    }
-  }
-  }
-
-  
-
 
 
   @media ${Media.mobileL}{

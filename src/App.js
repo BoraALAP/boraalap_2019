@@ -1,13 +1,11 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 
-import { ThemeProvider } from "styled-components"; 
+import { ThemeProvider } from "styled-components";
 
 import theme from "./styles/Light";
 import GlobalStyles from "./styles/Global";
 import TransitionStyles from "./styles/Transitions";
-
 
 import Header from "./components/global/Header";
 import Sidebar from "./components/global/Sidebar";
@@ -17,16 +15,26 @@ import { Context, appReducer, initialState } from "./data/store";
 import NotFound from "./pages/NotFound";
 import HomePage from "./pages/HomePage";
 
-import Work from "./pages/Work";
+import ListView from "./components/ListView";
+import GridView from "./components/GridView";
 
 import Cottonist from "./pages/projects/Cottonist";
 import Ekar from "./pages/projects/Ekar";
 import BonAPP from "./pages/projects/BonAPP";
+import AccentTranslations from "./pages/projects/AccentTranslations";
+import TSA from "./pages/projects/TSA";
+
 import Footer from "./components/global/Footer";
+import { toTop } from "./components/GlobalFunctions";
+
 
 export default function App() {
   const [store, dispatch] = useReducer(appReducer, initialState);
   
+  useEffect(() => {
+    toTop()
+  },[])
+
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
@@ -36,25 +44,45 @@ export default function App() {
               <>
                 <Header />
                 <Sidebar location={location} history={history} />
-                <TransitionGroup>
-                  <CSSTransition
-                    key={location.key}
-                    timeout={2000}
-                    classNames="transition"
-                  >
+                
                     <Switch>
                       <Route exact path="/" component={HomePage} />
-                      <Route path="/work" component={Work} />
-                      <Route path="/projects/Cottonist" render={routeProps => <Cottonist routeProps={routeProps} />} />
-                      <Route path="/projects/Ekar" render={routeProps => <Ekar routeProps={routeProps} />} />
-                      <Route path="/projects/BonAPP" render={routeProps => <BonAPP routeProps={routeProps} />} />
+                      <Route path="/list" component={ListView} />
+                      <Route path="/grid" component={GridView} />
+                      <Route
+                        path="/projects/Cottonist"
+                        render={routeProps => (
+                          <Cottonist routeProps={routeProps} />
+                        )}
+                      />
+                      <Route
+                        path="/projects/Ekar"
+                        render={routeProps => <Ekar routeProps={routeProps} />}
+                      />
+                      <Route
+                        path="/projects/BonAPP"
+                        render={routeProps => (
+                          <BonAPP routeProps={routeProps} />
+                        )}
+                      />
+                      <Route
+                        path="/projects/AccentTranslations"
+                        render={routeProps => (
+                          <AccentTranslations routeProps={routeProps} />
+                        )}
+                      />
+                      <Route
+                        path="/projects/TSA"
+                        render={routeProps => (
+                          <TSA routeProps={routeProps} />
+                        )}
+                      />
                       <Route component={NotFound} />
                     </Switch>
-                  </CSSTransition>
-                </TransitionGroup>
+  
                 <GlobalStyles />
                 <TransitionStyles />
-                
+
                 <Footer />
               </>
             )}

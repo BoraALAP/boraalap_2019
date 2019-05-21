@@ -30,27 +30,27 @@ export default function(props) {
     <SocialStyled>
       <ul>
         <li>
-          <a href="https://www.linkedin.com">
+          <a href="mailto:alapbora@gmail.com?subject=Hi%20Bora&body=" target="_blank"  rel="noopener noreferrer">
             <Svg alt="email" src={mail} />
           </a>
         </li>
         <li>
-          <a href="https://www.linkedin2.com">
+          <a href="https://www.linkedin.com/in/boraalap/" target="_blank"  rel="noopener noreferrer">
             <Svg alt="linkedin" src={linkedin} />
           </a>
         </li>
         <li>
-          <a href="https://www.linkedin3.com">
+          <a href="https://github.com/BoraALAP" target="_blank"  rel="noopener noreferrer">
             <Svg alt="github" src={github} />
           </a>
         </li>
         <li>
-          <a href="https://www.linkedin4.com">
+          <a href="https://www.behance.net/BoraALAP" target="_blank"  rel="noopener noreferrer">
             <Svg alt="behance" src={behance} />
           </a>
         </li>
         <li>
-          <a href="https://www.linkedin5.com">
+          <a href="https://dribbble.com/BoraALAP" target="_blank"  rel="noopener noreferrer">
             <Svg alt="dribble" src={dribble} />
           </a>
         </li>

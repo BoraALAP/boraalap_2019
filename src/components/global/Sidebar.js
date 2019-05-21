@@ -77,9 +77,13 @@ export default function Sidebar(props) {
     }
   });
 
+  const toTop = () => {
+    window.scrollTo(0, 0);   
+  }
+
   const sidebarBack = (
     <div className="projectNum">
-      <Link to={"/work"}>
+      <Link to={ (workView === "list" ? "/list" : "/grid" )}  onClick={toTop}>
         <Svg src={leftArrow} alt="left arrow" smallSize/>
       </Link>
     </div>

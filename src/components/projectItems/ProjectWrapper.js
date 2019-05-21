@@ -10,7 +10,7 @@ export default styled.div`
     @media ${Media.mobileL} {
         margin: auto;
         padding: ${props => props.padding ? '12.5em 0 7.5em 0': ''};
-        width: calc(70vw);
+        width: 70vw;
     }
 `
 

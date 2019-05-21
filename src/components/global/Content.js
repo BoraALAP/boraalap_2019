@@ -8,7 +8,7 @@ export default styled.div`
 
     @media ${Media.mobileL} {
         margin-left: calc(50px + 2em);
-        width: calc(100vw - 50px - 4.5em);
+        width: calc(100vw - 100px - 4.5em);
     }
 `
 

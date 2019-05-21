@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import Swatches from "./Swatches";
 
-import { Media } from '../../styles/Media'
+import { Media } from "../../styles/Media";
 
 const Container = styled.div`
   margin-bottom: 3em;
-`
+`;
 
 const Colors = styled.div`
   background: ${props => props.theme.color.gray_lightest};
@@ -50,14 +50,13 @@ const LogoContainer = styled.div`
   grid-auto-flow: row;
   background: ${props => props.theme.color.white};
 
-  @media ${Media.tablet}{
+  @media ${Media.tablet} {
     grid-auto-flow: column;
   }
-`
+`;
 
 const Branding = props => {
-
-  const project = props.info
+  const project = props.info;
   return (
     <Container>
       <Logo>
@@ -71,7 +70,11 @@ const Branding = props => {
               <img src={project.logo4} alt="" className="lastlogo" />
             )}
           </div>
-          <div className="logoText"><p>{project.logotext}</p></div>
+          {project.logotext && (
+            <div className="logoText">
+              <p>{project.logotext}</p>
+            </div>
+          )}
         </LogoContainer>
       </Logo>
       <Colors>
@@ -85,7 +88,9 @@ const Branding = props => {
           <Swatches background={project.greycolor2} title={`Grey Medium`} />
           <Swatches background={project.greycolor3} title={`Grey Light`} />
         </div>
-        <div className="colorText"><p>{project.colortext}</p></div>
+        <div className="colorText">
+          <p>{project.colortext}</p>
+        </div>
       </Colors>
     </Container>
   );

@@ -6,13 +6,14 @@ import styled from "styled-components";
 import ProjectWrapper from "../../components/projectItems/ProjectWrapper";
 import { Media } from "../../styles/Media";
 
+import {toTop} from '../../components/GlobalFunctions'
 const Style = styled.div`
   display: grid;
   transition: all 1s ease-in;
   align-items: center;
   align-content: center;
-  height: 100vh;
-  min-height: 50em;
+  height: auto;
+  min-height: auto;
   grid-gap: 0.75em;
   scroll-snap-align: start;
 
@@ -20,13 +21,15 @@ const Style = styled.div`
     width: 100%;
   }
 
-  &.Active {
+  @media ${Media.mobileL} {
+    height: 100vh;
+  min-height: 50em;
   }
 `;
 
 const BottomSide = styled.div`
   display: grid;
-  padding: 3em 5vw;
+  padding: 3em 10vw;
   grid-gap: 1em 2em;
   align-items: center;
   align-items: start;
@@ -42,7 +45,9 @@ const BottomSide = styled.div`
   @media ${Media.tablet} {
     grid-template-areas:
       "title title"
-      "description link"
+      "description link";
+
+      padding: 3em 5vw;
   }
 `;
 
@@ -56,6 +61,7 @@ const Website = styled.div`
 `;
 
 export default function ProjectListCard(props) {
+
   return (
     <Style className={props.className}>
       <ProjectWrapper>
@@ -69,7 +75,7 @@ export default function ProjectListCard(props) {
             <p>{props.description}</p>
             
           </div>
-          <Website>
+          <Website onClick={toTop}>
             <Button path={`projects/${props.link}`}>See the Project</Button>
             </Website>
         </BottomSide>

@@ -20,7 +20,7 @@ const ProjectUl = styled.ul`
     background: ${props => props.theme.color.gray_lighter};
     border-radius: 2em;
     padding: 0.2em 1em;
-
+    width: max-content;
     h6 {
       color: ${props => props.theme.color.white};
     }

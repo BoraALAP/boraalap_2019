@@ -8,6 +8,8 @@ import Svg from "./Svg";
 
 import ImageContainer from "../../components/ui/ImageContainer";
 
+import {toTop} from '../../components/GlobalFunctions'
+
 const Style = styled.div`
   display: grid;
 `;
@@ -28,6 +30,7 @@ const Details = styled.div`
 `;
 
 const ProjectGridCard = props => {
+  
   return (
     <Style>
       <ImageContainer imageSrc={props.imageSrc} height={'20vh'} />
@@ -36,7 +39,7 @@ const ProjectGridCard = props => {
           <small>{props.platform}</small>
           <h3>{props.name}</h3>
         </Details>
-        <Link to={`/projects/${props.link}`}>
+        <Link to={`/projects/${props.link}`} onClick={toTop}>
           <Svg smallSize src={rightArrow} alt="right arrow" />
         </Link>
       </Bottom>
