@@ -124,8 +124,12 @@ export const projects = [
 
 export const experiences = [
   {
+    title: "Rogers Communications",
+    note: "2019 - Current | Product Designer"
+  },
+  {
     title: "Compass Digital Labs",
-    note: "2018 - Current | Product Designer"
+    note: "2018 - 2019 | Product Designer"
   },
   {
     title: "Demac Media",

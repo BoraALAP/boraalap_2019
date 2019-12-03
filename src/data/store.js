@@ -15,7 +15,7 @@ export const appReducer = (state, action) => {
       return state.slideNum === 0
         ? { ...state, slideNum: state.projects.length - 1 }
         : { ...state, slideNum: state.slideNum - 1 };
-    case "NEXT_SLIDE":
+    case "NEXT_SLIDE": 
       return state.slideNum === state.projects.length - 1
         ? { ...state, slideNum: 0 }
         : { ...state, slideNum: state.slideNum + 1 };

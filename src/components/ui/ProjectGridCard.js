@@ -17,7 +17,7 @@ const Style = styled.div`
 const Bottom = styled.div`
   display: grid;
   grid-auto-flow: column;
-  margin: 1em;
+  margin: 1em; 
   align-items: center;
   background-color: ${props => props.theme.color.white};
   transform: translateY(-4em);

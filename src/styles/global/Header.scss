@@ -1,0 +1,46 @@
+@import "../Index.scss";
+
+.Site-header {
+  position: fixed;
+  width: 100vw;
+  background-color: $white;
+
+  header {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+    padding: 15px 2.5vw;
+    font-family: $fontheader;
+    align-items: center;
+
+    div {
+      h1 {
+        font-size: 2.5em;
+        margin: 0;
+      }
+      h3 {
+        color: $gray;
+        font-size: 1em;
+        margin: 5px 0 0 25px;
+      }
+    }
+
+    .rightSide {
+      display: grid;
+      grid-auto-flow: column;
+      grid-gap: 10px;
+      justify-items: center;
+      align-items: center;
+
+      a {
+        padding: 10px;
+      }
+      button {
+        font-size: 1em;
+        padding: 10px;
+        height: fit-content;
+        color: $gray;
+      }
+    }
+  }
+}

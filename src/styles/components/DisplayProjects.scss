@@ -1,0 +1,15 @@
+@import '../Index.scss';
+
+.Landing{
+  display: grid;
+  position: absolute;
+  transform: translatex(110vw);
+  transition: all 1000ms ease-in;
+  img{
+    width: 100%;
+  }
+
+  &.Active{
+    transform: translateY(0vh);
+  }
+}

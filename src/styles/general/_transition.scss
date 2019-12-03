@@ -1,0 +1,33 @@
+.enter {
+  opacity: 0;
+  .Content {
+    transform: translateX(100vw);
+    transition: all 1000ms ease-in 1000ms;
+  }
+  transition: all 1000ms ease-in 1000ms;
+  &.enter-active {
+    opacity: 1;
+
+    
+    .Content {
+      transform: translateX(0vw);
+      
+    }
+  }
+}
+
+.exit {
+  opacity: 1;
+  .Content {
+    transform: translateX(0vw);
+    transition: all 1000ms ease-in;
+  }
+  transition: all 1000ms ease-in;
+  &.exit-active {
+    opacity: 0;
+    
+    .Content {
+      transform: translateX(-100vw);
+    }
+  }
+}

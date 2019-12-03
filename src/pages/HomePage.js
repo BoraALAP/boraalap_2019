@@ -26,7 +26,7 @@ const Wrapper = styled(Content)`
   @media ${Media.mobileL} {
     min-height: 100vh;
     margin: auto 7em auto;
-    align-content: center;
+    align-content: center; 
     h2 {
       font-size: 2.75em;
     }

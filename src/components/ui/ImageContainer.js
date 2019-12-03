@@ -11,4 +11,4 @@ const ImageContainer = styled.div`
 `
 
 
-export default ImageContainer
+export default ImageContainer 
